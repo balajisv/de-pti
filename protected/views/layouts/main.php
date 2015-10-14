@@ -76,6 +76,17 @@
 				<?php
 					$this->renderPartial("//layouts/loginbox");
 					$this->renderPartial("//layouts/leftbox", array(
+						"Title" => "Neptun",
+						"Content" => '
+							<div style="text-align: center;">
+								<a href="https://www-1.neptun.unideb.hu/hallgato" target="blank">1. szerver</a><br>
+								<a href="https://www-2.neptun.unideb.hu/hallgato" target="blank">2. szerver</a><br>
+								<a href="https://www-3.neptun.unideb.hu/hallgato" target="blank">3. szerver</a><br>
+								<a href="http://neptun.unideb.hu/login.php?user=student" target="blank">Mindegy</a>
+							</div>
+						'
+					));
+					$this->renderPartial("//layouts/leftbox", array(
 						"Title" => "Ajánlj ismerőseidnek!",
 						"Content" => '
 							<div class="fb-like" data-href="http://users.atw.hu/de-pti" data-layout="box_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
