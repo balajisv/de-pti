@@ -46,6 +46,19 @@ $this->breadcrumbs=array(
 			';
 		}
 	}
+	else {
+		print '
+			<div class="flash-success">
+				Regisztrálj hozzánk, mert
+				<ul>
+					<li>megadhatod, mely tárgyakat teljesítetted, és mi megmutatjuk, mit vehetsz fel,</li>
+					<li>nyomon követheted a hiányzásaidat, ha a tantárgy nevére kattintasz,</li>
+					<li>ha van valami hasznos anyagod, megoszthatod hallgatótársaiddal,</li>
+					<li>kiírhatsz ZH, vizsga és konzultációs időpontokat a tantárgyakhoz.</li>
+				</ul>
+			</div>
+		';
+	}
 	
 	foreach ($groups as $CurrentGroup) {
 		$this->renderPartial('_listgroup', array(
