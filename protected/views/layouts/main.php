@@ -24,6 +24,7 @@
 		Yii::app()->clientScript->registerCoreScript('jquery');
 		Yii::app()->getClientScript()->registerCoreScript( 'jquery.ui' );
 		Yii::app()->clientScript->registerCssFile(Yii::app()->clientScript->getCoreScriptUrl().'/jui/css/base/jquery-ui.css');
+		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/cookie.js', CClientScript::POS_HEAD);
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/main.js', CClientScript::POS_HEAD);
 	?>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />

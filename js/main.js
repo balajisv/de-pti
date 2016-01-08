@@ -75,3 +75,40 @@ function ResetAbsenteeism(subject_id) {
 		}
 	});
 }
+
+function CookieWarning() {
+	if (getCookie('cookiewarningdisplayed') == '') {
+		$('#mbText').html('\
+			<p>A DE-PTI cookie-kat használ. Ha nem tudod, mik azok, akkor\
+			járj be "Az internet eszközei és szolgáltatásai" előadásra.</p>\
+			<p>Mi csak azért használjuk, hogy tudjuk, hogy be vagy-e\
+			jelentkezve vagy sem.</p>\
+			<p>Ha részletesen érdekelnek a cookie-k, olvasd el az RFC 2109-es\
+			dokumentumot <a href="https://www.ietf.org/rfc/rfc2109.txt" target="_blank">[itt]</a>.</p>\
+		');
+		
+		$("#messageBox").dialog({
+			width: 400,
+			height: 300,
+			resizable: false,
+			modal: true,
+			closeOnEscape: false,
+			title: "Vigyázz! Sütik!",
+			buttons: {
+				'Megértettem': function() {
+					setCookie('cookiewarningdisplayed', 'true', 1000);
+					$('#messageBox').dialog('close');
+				},
+				
+				'Ez tetszik :)': function() {
+					$('#messageBox').dialog('close');
+					alert('Ennek örülünk, legközelebb is megjelenítjük neked!');
+				}
+			}
+		});
+	}
+}
+
+$(document).ready(function() {
+	CookieWarning();
+});
