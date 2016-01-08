@@ -81,8 +81,14 @@ function CookieWarning() {
 		$('#mbText').html('\
 			<p>A DE-PTI cookie-kat használ. Ha nem tudod, mik azok, akkor\
 			járj be "Az internet eszközei és szolgáltatásai" előadásra.</p>\
-			<p>Mi csak azért használjuk, hogy tudjuk, hogy be vagy-e\
-			jelentkezve vagy sem.</p>\
+			\
+			<p>Mi azért használjuk a cookie-kat, hogy:\
+				<ol>\
+					<li>tudjuk, be vagy-e jelentkezve vagy sem</li>\
+					<li>tároljuk, hogy ezt az ablakot nem akarod látni egy jó ideig</li>\
+				</ol>\
+			</p>\
+			\
 			<p>Ha részletesen érdekelnek a cookie-k, olvasd el az RFC 2109-es\
 			dokumentumot <a href="https://www.ietf.org/rfc/rfc2109.txt" target="_blank">[itt]</a>.</p>\
 		');
@@ -98,6 +104,7 @@ function CookieWarning() {
 				'Megértettem': function() {
 					setCookie('cookiewarningdisplayed', 'true', 1000);
 					$('#messageBox').dialog('close');
+					alert('A 2. pontban említett sütit épp most hoztuk létre a gépeden. Ha érvényteleníteni akarod, akkor ezt a JavaScript utasítást hívd meg:\nsetCookie("cookiewarningdisplayed", "", -5);');
 				},
 				
 				'Ez tetszik :)': function() {
