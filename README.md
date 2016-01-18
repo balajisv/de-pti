@@ -8,7 +8,7 @@ A repository tartalma
 ---------------------
 - Yii Framework 1
 - A DE-PTI teljes kódja
-- A DE-PTI adatbázisterve MySQL Workbench formátumban
+- A DE-PTI adatbázisterve MySQL Workbench formátumban (de-pti.mwb)
 - Telepítési dokumentáció (azaz a README.md)
 
 Üzembe helyezési előfeltételek
