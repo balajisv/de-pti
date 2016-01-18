@@ -25,8 +25,9 @@ A repository tartalma
 2. A fájlokat bemásoljuk a webszerver könyvtárába.
 3. A protected/config/main.php-ben a Yii Framework 1 dokumentációja alapján beállítjuk az adatbázis-kapcsolatot, illetve a params altömb értékeit.
 4. Létrehozunk egy upload nevű mappát a protected könyvtárral egy szinten.
-5. ???
-6. Profit!
+5. A pti_subject_groups táblában felvesszük a tárgycsoportokat. A tantárgyakat csak ezekbe a tárgycsoportokba lehet felvenni.
+6. Regisztrálunk a szoftveren keresztül egy felhasználói fiókot, majd ezt a fiókot az adatbázis pti_user táblában tulajdonossá tesszük (a level mező értékét 2-re állítjuk).
+7. Bejelentkezünk a tulajdonos szintű felhasználói fiókkal, majd a Tantárgyak menüpontban felvesszük az egyes tantárgyakat.
 
 Licenc
 ------
