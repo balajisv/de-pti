@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * Az egyes tantárgyakhoz rendelt eseményeket kezelő controller.
+ */
 class EventController extends Controller
 {
+	/**
+	 * Kilistázza a jövőbeli eseményeket.
+	 */
 	public function actionIndex() {
 		$model = Events::model()->with('subject')->findAll(
 			array(
@@ -15,9 +21,13 @@ class EventController extends Controller
 		));
 	}
 	
+	/**
+	 * Kilistázza a megadott tantárgyhoz tartozó összes eseményt.
+	 * @param int $id A tantárgy azonosítója
+	 */
 	public function actionList($id)
 	{
-		$model = Subject::model()->findByPk($id);
+		$model = Subject::model()->findByPk((int)$id);
 		if ($model == null)
 			throw new CHttpException(404, "A kért elem nem található");
 	
@@ -27,7 +37,12 @@ class EventController extends Controller
 		));
 	}
 	
+	/**
+	 * Törli a megadott eseményt.
+	 * @param int $id A törlendő esemény azonosítója
+	 */
 	public function actionDelete($id) {
+		$id = (int)$id;
 		if (Yii::app()->user->getId() == null) {
 			throw new CHttpException(403, "Ezt a funkciót csak regisztrált felhasználók használhatják");
 		}
@@ -38,6 +53,10 @@ class EventController extends Controller
 		$this->redirect(Yii::app()->createUrl("event/list", array("id" => $subject_id)));
 	}
 	
+	/**
+	 * Új eseményt ír ki a megadott tantárgyhoz.
+	 * @param int $id A tantárgy azonosítója
+	 */
 	public function actionCreate($id) {
 		if (Yii::app()->user->getId() == null) {
 			throw new CHttpException(403, "Ezt a funkciót csak regisztrált felhasználók használhatják");
@@ -55,7 +74,12 @@ class EventController extends Controller
 		$this->redirect(Yii::app()->createUrl("event/list", array("id" => $id)));
 	}
 	
+	/**
+	 * Módosítja a megadott eseményt.
+	 * @param int $id Az esemény azonosítója
+	 */
 	public function actionEdit($id) {
+		$id = (int)$id;
 		if (Yii::app()->user->getId() == null) {
 			throw new CHttpException(403, "Ezt a funkciót csak regisztrált felhasználók használhatják");
 		}
@@ -86,9 +110,14 @@ class EventController extends Controller
 		));
 	}
 	
+	/**
+	 * Megjeleníti a megadott esemény részletes adatait.
+	 * @param int $id Az esemény azonosítója
+	 */
 	public function actionDetails($id) {
-		$EventModel = Events::model()->findByPk($id);
+		$EventModel = Events::model()->findByPk((int)$id);
 		$SubjectModel = Subject::model()->findByPk($EventModel->subject_id);
+		
 		if ($EventModel == null || $SubjectModel == null)
 			throw new CHttpException(404, "A kért elem nem található");
 		

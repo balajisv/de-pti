@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * Az egyes tantárgyakhoz tartozó fájlok kezeléséért felelős controller.
+ */
 class FileController extends Controller
 {
+	/**
+	 * Kilstázza az adott tantárgyhoz tartozó fájlokat.
+	 * @param int $id A tantárgy azonosítója
+	 */
 	public function actionList($id)
 	{
-		$id = (int)$id;
-	
-		$model = Subject::model()->findByPk($id);
+		$model = Subject::model()->findByPk((int)$id);
 		if ($model == null)
 			throw new CHttpException(404, "A kért elem nem található");
 		
@@ -15,9 +20,12 @@ class FileController extends Controller
 		));
 	}
 	
+	/**
+	 * Megjeleníti az adott fájl részletes adatait.
+	 * @param int $id A fájl azonosítója
+	 */
 	public function actionDetails($id) {
-		$id = (int)$id;
-		$model = File::model()->findByPk($id);
+		$model = File::model()->findByPk((int)$id);
 		if ($model == null)
 			throw new CHttpException(404, "A kért elem nem található");
 		
@@ -26,6 +34,10 @@ class FileController extends Controller
 		));
 	}
 	
+	/**
+	 * Feltölt egy fájlt a megadott tantárgyhoz.
+	 * @param int $id A tantárgy azonosítója
+	 */
 	public function actionUpload($id) {
 		if (!Yii::app()->user->getId()) {
 			throw new CHttpException(403, 'A funkció használatához be kell jelentkeznie');
@@ -64,6 +76,10 @@ class FileController extends Controller
 		}
 	}
 	
+	/**
+	 * Letöltésre kényszeríti a megadott fájlt.
+	 * @param int $id A fájl azonosítója
+	 */
 	public function actionDownload($id) {
 		$id = (int)$id;
 		$model = File::model()->findByPk($id);
@@ -77,6 +93,11 @@ class FileController extends Controller
 		$Req->sendFile($model->filename_real, file_get_contents("upload/" . $model->filename_local));
 	}
 	
+	/**
+	 * Törli a megadott fájlt. A fájlt csak a fájl feltöltője vagy legalább 1-es szintű felhasználó
+	 * törölhet.
+	 * @param int $id A fájl azonosítója
+	 */
 	public function actionDelete($id) {
 		$id = (int)$id;
 		$model = File::model()->findByPk($id);

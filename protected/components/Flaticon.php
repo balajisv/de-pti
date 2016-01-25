@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * A Flaticon CSS betűkészlethez némi segédosztály
+ */
 class Flaticon {
 	private static $Classes = array(
 		'zip'	=> 'zip6',
@@ -19,10 +22,19 @@ class Flaticon {
 		'sql'	=> 'sql3',
 	);
 
+	/**
+	 * Regisztrálja a Flaticon-t a weblapon
+	 * @param string $CSSDir Az útvonal, ahol a CSS fájlokat tároljuk
+	 */
 	public static function Register($CSSDir) {
 		Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl . $CSSDir."/flaticon.css");
 	}
 	
+	/**
+	 * Visszaad egy span tag-et a megadott fájlnév kiterjesztése alapján, amely a kiterjesztéshez tartozó fájlikont jeleníti meg.
+	 * @param string $Filename A fájlnév a kiterjesztéssel együtt
+	 * @return string A span tag
+	 */
 	public static function GetByFilename($Filename) {
 		$Ext = strtolower(pathinfo($Filename, PATHINFO_EXTENSION));
 		

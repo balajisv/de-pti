@@ -1,8 +1,17 @@
 <?php
 /**
+ * Stringkezelő osztály.
  */
 class StringHelper extends CApplicationComponent
 {
+	/**
+	 * Levágja az adott stringet.
+	 * @param string $string A levágandó string
+	 * @param int $start Melyik indexű karakternél kezdjük a vágást
+	 * @param int $length Hány karakter hosszú lehet legfeljebb a vágott string
+	 * @param string $append Ezt pakoljuk a levágott string végére
+	 * @return string A levágott string
+	 */
     public function substr($string, $start = 0, $length = 0, $append = '...')
     {
         $stringLast = "";

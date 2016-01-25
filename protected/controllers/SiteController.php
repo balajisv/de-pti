@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Ez a controller felelős a hírek és a statikus oldalak kezeléséért.
+ */
 class SiteController extends Controller
 {
 	/**
@@ -21,10 +24,12 @@ class SiteController extends Controller
 		);
 	}
 	
+	/**
+	 * Megjeleníti a megadott hírt.
+	 * @param int $id A hír azonosítója
+	 */
 	public function actionShowNews($id) {
-		$id = (int)$id;
-		
-		$model = News::model()->findByPk($id);
+		$model = News::model()->findByPk((int)$id);
 		if ($model == null)
 			throw new CHttpException(404, "A kért elem nem található");
 		
@@ -34,31 +39,11 @@ class SiteController extends Controller
 	}
 
 	/**
-	 * This is the default 'index' action that is invoked
-	 * when an action is not explicitly requested by users.
+	 * Kilistázza a híreket.
+	 * @param string $source A hírforrás. "deik" érték esetén a http://inf.unideb.hu oldalról tölti le a híreket. Deprecated, az értéke mindig null legyen.
 	 */
 	public function actionIndex($source = null)
-	{
-		/*
-		$criteria=new CDbCriteria();
-		$criteria->order = 'date_updated DESC';
-		$criteria->limit = 5;
-		
-		$model = new Post();
-		$total = $model->count($criteria);
-		
-		$pages=new CPagination($total);
-		$pages->pageSize=self::PAGE_SIZE;
-		$pages->applyLimit($criteria);
-		
-		$list = $model->findAll($criteria);
-		
-		$this->render('index', array(
-			'model' => $list,
-			'pages' => $pages,
-		));
-		*/
-		
+	{	
 		switch ($source) {
 			case "deik":
 				$this->render('index_deik');
@@ -83,6 +68,9 @@ class SiteController extends Controller
 		}
 	}
 	
+	/**
+	 * Elmenti az új hírt.
+	 */
 	public function actionAddNews() {
 		if (!Yii::app()->user->getId() || Yii::app()->user->level < 1) {
 			throw new CHttpException(
@@ -106,7 +94,12 @@ class SiteController extends Controller
 		$this->redirect(Yii::app()->createUrl("site/index"));
 	}
 	
+	/**
+	 * Szerkeszti a megadott azonosítójú hírt.
+	 * @param int $id A hír azonosítója.
+	 */
 	public function actionEditNews($id) {
+		$id = (int)$id;
 		if (!Yii::app()->user->getId() || Yii::app()->user->level < 1) {
 			throw new CHttpException(
 				403, 
@@ -136,6 +129,10 @@ class SiteController extends Controller
 		));
 	}
 	
+	/**
+	 * Törli a megadott hírt. A törléshez legalább 1-es szintű hozzáférés szükséges.
+	 * @param int $id A hír azonosítója
+	 */
 	public function actionDeleteNews($id) {
 		if (!Yii::app()->user->getId() || Yii::app()->user->level < 1) {
 			throw new CHttpException(
@@ -144,10 +141,14 @@ class SiteController extends Controller
 			);
 		}
 		
-		News::model()->deleteByPk($id);
+		News::model()->deleteByPk((int)$id);
 		$this->redirect(Yii::app()->createUrl("site/index"));
 	}
 	
+	/**
+	 * Letölti a híreket a http://www.inf.unideb.hu címről
+	 * @deprecated A http://www.inf.unideb.hu webhely már nem frissül, így nem használjuk
+	 */
 	public function actionQuerydeik() {
 		Yii::import('ext.EHttpRequest.*');
 		

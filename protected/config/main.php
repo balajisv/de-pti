@@ -7,6 +7,8 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+	
+	//A webhely neve
 	'name'=>'DE-PTI',
 
 	// preloading 'log' component
@@ -53,6 +55,7 @@ return array(
 		),
 		*/
 		// uncomment the following to use a MySQL database
+		//Itt kell beállítani az adatbázis-kapcsolatot
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=de-pti',
 			'emulatePrepare' => true,
@@ -85,8 +88,14 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
+		
+		//A webhely üzemeltetőjéne az e-mail címe
 		'adminEmail'=>'',
+		
+		//Ha ez true, üzenetet jelenít meg minden oldalon, hogy a webhely fejlesztés alatt áll
 		'underDeveloping'=>false,
+		
+		//A fájlfeltöltésnél nem megengedett fájlkiterjesztések listája
 		'deniedexts' => array('html', 'htm', 'xhtml', 'js', 'css', 'php', 'php3'),
 	),
 );

@@ -1,7 +1,17 @@
 <?php
 
+/**
+ * A tantárgyak kezeléséért felelős controller.
+ */
 class SubjectController extends Controller
 {
+	/**
+	 * Kilistázza tárgycsoportoknént az összes tantárgyat. Bejelentkezett
+	 * felhasználó esetén figyelembe veszi azt is, hogy mely tantárgyak
+	 * vannak teljesítve, mit vehet és mit nem vehet fel.
+	 * 
+	 * @param int $group_id A tárgycsoport azonosítója. Deprecated, az értéke maradjon null.
+	 */
 	public function actionIndex($group_id = null)
 	{
 		$Groups = SubjectGroup::model()->with('subjects')->findAll(array('order' => 't.group_id'));
@@ -32,6 +42,10 @@ class SubjectController extends Controller
 		));
 	}
 	
+	/**
+	 * Létrehozza vagy szerkeszti a megadott tantárgy adatait.
+	 * @param int $id A tantárgy azonosítója. Null esetén új tárgyat ír ki, egyébként meglévő tárgyat szerkeszt
+	 */
 	public function actionEditSubject($id = null) {
 		if (!Yii::app()->user->getId() || Yii::app()->user->level < 1) {
 			throw new CHttpException(
@@ -40,7 +54,7 @@ class SubjectController extends Controller
 			);
 		}
 		
-		$Subject = ($id == null) ? new Subject : Subject::model()->findByPk($id);
+		$Subject = ($id == null) ? new Subject : Subject::model()->findByPk((int)$id);
 		
 		$Subject->name = $_POST["name"];
 		$Subject->semester = $_POST["semester"];
@@ -56,6 +70,10 @@ class SubjectController extends Controller
 		}
 	}
 	
+	/**
+	 * Megjeleníti a tantárgy adatlapját. Bejelentkezett hallgató esetén a hiányzásokat is lekérdezi.
+	 * @param int $id A tantárgy azonosítója
+	 */
 	public function actionDetails($id) {
 		$model = Subject::model()->findByPk((int)$id);
 		if ($model == null)
@@ -109,8 +127,12 @@ class SubjectController extends Controller
 		));
 	}
 	
+	/**
+	 * Megjeleníti a tantárgy előfeltételeit tartalmazó tárgyfát.
+	 * @param int $id A tantárgy azonosítója
+	 */
 	public function actionDependencyTree($id) {
-		$model = Subject::model()->findByPk($id);
+		$model = Subject::model()->findByPk((int)$id);
 		
 		if ($model == null) {
 			throw new CHttpException(404, "Nem létező tantárgy");
@@ -124,6 +146,10 @@ class SubjectController extends Controller
 		));
 	}
 	
+	/**
+	 * Eltávolítja a megadott előkövetelményt.
+	 * @param int $id Az előkövetelmény azonosítója
+	 */
 	public function actionRemoveDependency($id) {
 		if (!Yii::app()->user->getId() || Yii::app()->user->level < 1) {
 			throw new CHttpException(
@@ -132,7 +158,7 @@ class SubjectController extends Controller
 			);
 		}
 	
-		$model = SubjectDependencies::model()->findByPk($id);
+		$model = SubjectDependencies::model()->findByPk((int)$id);
 		if ($model == null)
 			throw new CHttpException(404, "A kért elem nem található");
 		$SubjectID = $model->subject_id;
@@ -142,6 +168,10 @@ class SubjectController extends Controller
 		$this->redirect(Yii::App()->createUrl("subject/details", array("id" => $SubjectID)));
 	}
 	
+	/**
+	 * Módosítja a megadott tantárgy leírását.
+	 * @param int $id A tantárgy azonosítója
+	 */
 	public function actionEditDescription($id) {
 		if (!Yii::app()->user->getId() || Yii::app()->user->level < 1) {
 			throw new CHttpException(
@@ -165,10 +195,15 @@ class SubjectController extends Controller
 		}
 	}
 	
+	/**
+	 * Új előfeltételt vesz fel a megadott tantárgyhoz.
+	 * @param int $id A tantárgy azonosítója
+	 */
 	public function actionAddDependency($id) {
 		$model = new SubjectDependencies();
 		
-		$model->subject_id = $id;
+		//TODO: Ellenőrizni kellene, hogy egyáltalán léteznek-e ezek a tantárgyak
+		$model->subject_id = (int)$id;
 		$model->dependent_subject_id = $_POST["dependency_id"];
 		
 		$model->save();
@@ -176,6 +211,12 @@ class SubjectController extends Controller
 		$this->redirect(Yii::App()->createUrl("subject/details", array("id" => $id)));
 	}
 	
+	/**
+	 * Megadja, hogy a hallgató felveheti-e az adott tárgyat.
+	 * @param CActiveRecord $SubjectModel A felvenni kívánt tantárgy adatait tároló model objektum
+	 * @param array(int) $UserCompletedSubjects A felhasználó által teljesített tantárgyak azonosítói
+	 * @return boolean true, ha felvehető a tantárgy, false ha nem
+	 */
 	public function IsSubjectCompletable($SubjectModel, $UserCompletedSubjects) {
 		/*
 			Egy tantárgy felvehető, ha:

@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * A felhasználók kezeléséért felelős controller.
+ */
 class UserController extends Controller {
 
+	/**
+	 * Bejelentkezteti a felhasználót.
+	 */
 	public function actionLogin() {
 	
 		if (!isset($_POST['User'])) {
@@ -25,6 +31,9 @@ class UserController extends Controller {
 		}
 	}
 	
+	/**
+	 * Regisztrál egy új felhasználót.
+	 */
 	public function actionRegister() {
 		$model = new User('insert');
 		
@@ -50,11 +59,17 @@ class UserController extends Controller {
 		}
 	}
 	
+	/**
+	 * Kijelentkezteti a felhasználót.
+	 */
 	public function actionLogout() {
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->createUrl("site/index"));
 	}
 	
+	/**
+	 * Kilistázza az összes regisztrált felhasználót. Ez a funkció 2-es hozzáférési szinttel vehető igénybe.
+	 */
 	public function actionList() {
 		if (!Yii::app()->user->getId() || Yii::app()->user->level != 2) {
 			throw new CHttpException(403, 'Ehhez a funkcióhoz csak a webhely tulajdonosa férhet hozzá');
@@ -75,20 +90,29 @@ class UserController extends Controller {
 		));
 	}
 	
+	/**
+	 * Beállítja a megadott felhasználó hozzáférési szintjét. Ez a funkció 2-es hozzáférési szinttel vehető igénybe.
+	 * @param int $id A felhasználó azonosítója
+	 */
 	public function actionSetLevel($id) {
 		if (!Yii::app()->user->getId() || Yii::app()->user->level != 2) {
 			throw new CHttpException(403, 'Ehhez a funkcióhoz csak a webhely tulajdonosa férhet hozzá');
 		}
 		
-		$model = User::model()->findByPk($id);
+		$model = User::model()->findByPk((int)$id);
 		$model->scenario = 'update';
 		
+		//TODO: Vizsgálni kellene, hogy a szint 0, 1 vagy 2 értékű. Minden mást elutasítani.
 		$model->level = $_POST["level"];
 		$model->save();
 		
 		$this->redirect(Yii::app()->createUrl("user/list"));
 	}
 	
+	/**
+	 * Kilistázza a megadott felhasználó teljesített tantárgyait. Ez a funkció 2-es hozzáférési szinttel vehető igénybe.
+	 * @param int $id A felhasználó azonosítója
+	 */
 	public function actionCompletedSubjects($id) {
 		$id = (int)$id;
 	
@@ -105,11 +129,16 @@ class UserController extends Controller {
 		));
 	}
 	
+	/**
+	 * Az éppen bejelentkezett felhasználó számára tárolja, hogy teljesítette a megadott tantárgyat.
+	 * @param int $id A tantárgy azonosítója
+	 */
 	public function actionAddSubject($id) {
 		if (!Yii::app()->user->getId()) {
 			throw new CHttpException(403, "Ennek a funkciónak a használatához be kell jelentkeznie");
 		}
 		
+		//TODO: Ellenőrizni kellene, hogy az adott tantárgy egyáltalán létezik-e.
 		if (CompletedSubjects::AddSubjectRecursive($id, Yii::app()->user->getId())) {
 			$model = User::model()->with('CompletedCredits')->findByPk(Yii::app()->user->getId());
 			Yii::app()->user->setState('CompletedCredits', $model->CompletedCredits);
@@ -121,6 +150,10 @@ class UserController extends Controller {
 		}
 	}
 	
+	/**
+	 * Az éppen bejelentkezett felhasználó teljesített tárgyai közül törli a megadott tantárgyat.
+	 * @param int $id A tantárgy azonosítója
+	 */
 	public function actionRemoveSubject($id) {
 		if (!Yii::app()->user->getId()) {
 			throw new CHttpException(403, "Ennek a funkciónak a használatához be kell jelentkeznie");
@@ -137,6 +170,9 @@ class UserController extends Controller {
 		}
 	}
 	
+	/**
+	 * ??? Ez a neve alapján valami hibakezelő lehet... Mit keres ez itt?
+	 */
 	public function actionError() {
 		if($error=Yii::app()->errorHandler->error)
 		{
@@ -147,6 +183,10 @@ class UserController extends Controller {
 		}
 	}
 	
+	/**
+	 * Az éppen bejelentkezett felhasználó számára tárolja, hogy egy alkalmat hiányzott a megadott tantárgyból.
+	 * @param int $subject_id A tantárgy azonosítója
+	 */
 	public function actionIncrementAbsenteeism($subject_id) {
 		//Be van jelentkezve a felhasználó?
 		if (!Yii::app()->user->getId()) {
@@ -178,6 +218,10 @@ class UserController extends Controller {
 			print 'fail';
 	}
 	
+	/**
+	 * Az éppen bejelentkezett felhasználó számára a megadott tantárgyakból a hiányzásokat lenullázza.
+	 * @param int $subject_id A tantárgy azonosítója
+	 */
 	public function actionResetAbsenteeism($subject_id) {
 		//Be van jelentkezve a felhasználó?
 		if (!Yii::app()->user->getId()) {
@@ -201,6 +245,9 @@ class UserController extends Controller {
 		print 'ok';
 	}
 	
+	/**
+	 * Néhány egyéb action. Például captcha a regisztrációhoz.
+	 */
 	public function actions() {
 		return array(
 			// captcha action renders the CAPTCHA image displayed on the contact page
