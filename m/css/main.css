@@ -1,0 +1,82 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 10pt;
+	background-color: #eeeeee;
+}
+
+#main {
+	display: none;
+}
+
+#progress {
+	padding-top: 40px;
+}
+
+#lTitle {
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 1px solid #BFBFBF;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+a.blocklink, a.blocklink:visited, a.blocklink:link {
+	display: block;
+	padding: 15px 5px;
+	margin-bottom: 2px;
+	text-decoration: none;
+	color: #000000;
+	border: 1px solid #787878;
+	
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e5e5e5+100;White+3D */
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+a.blocklink_nocenter, a.blocklink_nocenter:visited, a.blocklink_nocenter:link {
+	display: block;
+	padding: 5px;
+	margin-bottom: 2px;
+	text-decoration: none;
+	color: #000000;
+	border: 1px solid #787878;
+	
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e5e5e5+100;White+3D */
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+.blocklink_nocenter .hint {
+	color: #7BAABA;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+a.blocklink_highlight, a.blocklink_highlight:visited, a.blocklink_highlight:link {
+	display: block;
+	padding: 15px 5px;
+	margin-bottom: 2px;
+	text-decoration: none;
+	color: #000000;
+	font-weight: bold;
+	border: 1px solid #125970;
+	
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b2e1ff+0,66b6fc+100;Blue+3D+%236 */
+	background: #b2e1ff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #b2e1ff 0%, #66b6fc 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #b2e1ff 0%,#66b6fc 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #b2e1ff 0%,#66b6fc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2e1ff', endColorstr='#66b6fc',GradientType=0 ); /* IE6-9 */
+}
