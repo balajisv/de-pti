@@ -6,6 +6,46 @@
 class SubjectController extends Controller
 {
 	/**
+	 * Visszaadja az összes tantárgycsoportot és tantárgyat az előfeltételeivel együtt egy
+	 * JSON dokumentumban.
+	 */
+	public function actionGetSubjectsJson() {
+		header("Content-Type: application/json;charset=UTF-8");
+		
+		$data = array(
+			"groups" => array(),
+			"subjects" => array()
+		);
+		
+		$Groups = SubjectGroup::model()->with('subjects')->findAll(array('order' => 't.group_id'));
+		if ($Groups != null) {
+			foreach ($Groups as $Group) {
+				$data["groups"][] = array(
+					"group_id" => (int)$Group->group_id,
+					"name" => $Group->group_name
+				);
+				
+				foreach ($Group->subjects as $Subject) {
+					$dependencies = array();
+					foreach ($Subject->dependencies as $Dependency) {
+						$dependencies[] = (int)$Dependency->dependent_subject_id;
+					}
+					
+					$data["subjects"][] = array(
+						"subject_id" => (int)$Subject->subject_id,
+						"group_id" => (int)$Group->group_id,
+						"semester" => $Subject->semester == null ? null : (int)$Subject->semester,
+						"name" => $Subject->name,
+						"dependencies" => $dependencies
+					);
+				}
+			}
+		}
+		
+		print json_encode($data);
+	}
+	
+	/**
 	 * Kilistázza tárgycsoportoknént az összes tantárgyat. Bejelentkezett
 	 * felhasználó esetén figyelembe veszi azt is, hogy mely tantárgyak
 	 * vannak teljesítve, mit vehet és mit nem vehet fel.
