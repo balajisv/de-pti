@@ -9,14 +9,15 @@ A repository tartalma
 - Yii Framework 1
 - A DE-PTI teljes kódja
 - A DE-PTI adatbázisterve MySQL Workbench formátumban (de-pti.mwb)
-- Telepítési dokumentáció (azaz a README.md)
+- Telepítési dokumentáció (README.md)
+- API dokumentáció (ApiDocumentation.md)
 
-Üzembe helyezési előfeltételek
+Üzembe helyezéshez kelleni fog
 ------------------------------
 - Egy webszerver, pl. Apache
 - Egy MySQL szerver
 - PHP futtatókörnyezet, legalább 5.3-as verzió
-- MySQL Workbench (az üzembe helyezés erejéig)
+- MySQL Workbench
 - Egy tetszőleges plain-text szövegszerkesztő
 
 Üzembe helyezés menete
