@@ -33,6 +33,8 @@ a.blocklink, a.blocklink:visited, a.blocklink:link {
 	text-decoration: none;
 	color: #000000;
 	border: 1px solid #787878;
+	overflow: hidden;
+	white-space: nowrap;
 	
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e5e5e5+100;White+3D */
 	background: #ffffff; /* Old browsers */
