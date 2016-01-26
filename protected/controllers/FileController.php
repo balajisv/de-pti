@@ -6,6 +6,36 @@
 class FileController extends Controller
 {
 	/**
+	 * Visszaadja a megadott tantárgyhoz tartozó fájlok listáját és azok adatait
+	 * JSON formátumban.
+	 * @param int $id A tantárgy azonosítója
+	 */
+	public function actionGetFilesJson($id) {
+		$model = Subject::model()->with("files")->findByPk((int)$id);
+		if ($model == null) {
+			header("Content-Type: text/plain;charset=UTF-8");
+			print "ERROR SUBJECT_NOT_FOUND";
+			return;
+		}
+		
+		header("Content-Type: application/json;charset=UTF-8");
+		
+		$data = array();
+		foreach ($model->files as $File) {
+			$data[] = array(
+				"file_id" => (int)$File->file_id,
+				"uploader" => $File->user->username,
+				"filename" => $File->filename_real,
+				"downloads" => (int)$File->downloads,
+				"size" => filesize("upload/".$File->filename_local),
+				"description" => $File->description,
+			);
+		}
+		
+		print json_encode($data);
+	}
+	
+	/**
 	 * Kilstázza az adott tantárgyhoz tartozó fájlokat.
 	 * @param int $id A tantárgy azonosítója
 	 */
