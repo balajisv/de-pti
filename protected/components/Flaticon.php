@@ -20,6 +20,28 @@ class Flaticon {
 		'rtf'	=> 'rtf',
 		'txt'	=> 'txt2',
 		'sql'	=> 'sql3',
+		'dtd'	=> 'dtd2',
+		'asp'	=> 'asp',
+		'aspx'	=> 'aspx',
+		'bin'	=> 'bin6',
+		'bat'	=> 'bat8',
+		'bmp'	=> 'bmp2',
+		'cab'	=> 'cab',
+		'class'	=> 'class3',
+		'com'	=> 'com',
+		'cfg'	=> 'cfg2',
+		'cgi'	=> 'cgi2',
+		'csv'	=> 'csv2',
+		'db'	=> 'db2',
+		'dll'	=> 'dll2',
+		'jar'	=> 'jar8',
+		'log'	=> 'log2',
+		'lua'	=> 'lua',
+		'tar'	=> 'tar1',
+		'vb'	=> 'vb',
+		'xhtml'	=> 'xhtml',
+		'xls'	=> 'xls1',
+		'xlsx'	=> 'xlsx',
 	);
 
 	/**
@@ -38,6 +60,9 @@ class Flaticon {
 	public static function GetByFilename($Filename) {
 		$Ext = strtolower(pathinfo($Filename, PATHINFO_EXTENSION));
 		
-		return '<span class="flaticon-'.self::$Classes[$Ext].'"></span>';
+		if (array_key_exists($Ext, self::$Classes))
+			return '<span class="flaticon-'.self::$Classes[$Ext].'"></span>';
+		else
+			return '<span class="flaticon-document325"></span>';
 	}
 }
