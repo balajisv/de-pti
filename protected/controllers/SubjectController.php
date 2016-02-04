@@ -36,6 +36,7 @@ class SubjectController extends Controller
 						"group_id" => (int)$Group->group_id,
 						"semester" => $Subject->semester == null ? null : (int)$Subject->semester,
 						"name" => $Subject->name,
+						"credit" => (int)$Subject->credits,
 						"dependencies" => $dependencies,
 						"files" => (int)$Subject->filecount,
 						"events" => (int)$Subject->eventcount

@@ -37,6 +37,7 @@ A válaszként kapott JSON dokumentum felépítése sikeres működés esetén:
          "group_id": A tárgycsoport azonosítója (int),
          "semester": Az ajánlott félév (int vagy null),
          "name": A tantárgy neve (string),
+		 "credit": A tantárgy kreditértéke (int),
          "dependencies":[
             Azon tantárgyak azonosítói, amelyekre ez a tantárgy épül
          ],

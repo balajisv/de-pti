@@ -10,29 +10,49 @@ $(document).ready(function() {
 });
 
 function ShowSubjectGroups() {
-	$("#lTitle").text("Tárgycsoportok");
+	$("#title").text("Tárgycsoportok");
 	
 	var items = [];
+	
 	$.each(SubjectInfo.groups, function(key, val) {
-		items.push('<a href="#" class="blocklink" onclick="ShowSubjects('+val.group_id+')">' + val.name + '</a>');
+		var NumOfSubjects = Count(SubjectInfo.subjects, function(x) { return x.group_id == val.group_id; });
+		
+		items.push(
+			'<a href="#" class="blocklink_nocenter" onclick="ShowSubjects('+val.group_id+')">' +
+				val.name + 
+				'<div class="hint">' + NumOfSubjects + ' tantárgy</div>' +
+			'</a>'
+		);
 	});
-
-	$("#content").html(items.join(""));
+	
+	if (items.length > 0)
+		$("#content").html(items.join(""));
+	else
+		$("#content").html('<div class="error">Nincsenek tárgycsoportok.</div>');
 }
 
 function ShowSubjects(group_id) {
 	HideProgress();
 		
-	$("#lTitle").text(GetGroupNameByID(group_id));
+	$("#title").text(GetGroupNameByID(group_id));
 	
 	var items = [];
 	items.push('<a href="#" class="blocklink_highlight" onclick="ShowSubjectGroups()">Vissza</a>');
 	$.each(SubjectInfo.subjects, function(key, val) {
-		if (val.group_id == group_id)
-			items.push('<a href="#" class="blocklink" onclick="ShowFiles('+val.subject_id+')">' + val.name + '</a>');
+		if (val.group_id == group_id) {
+			items.push(
+				'<a href="#" class="blocklink_nocenter" onclick="ShowFiles('+val.subject_id+')">' +
+					val.name + 
+					'<div class="hint">' + val.credit + ' kredit | ' + val.files + ' fájl</div>' +
+				'</a>'
+			);
+		}
 	});
-
+	
 	$("#content").html(items.join(""));
+	
+	if (items.length == 1)
+		$("#content").append('<div class="error">Ehhez a tárgycsoporthoz nem tartoznak tantárgyak.</div>');
 }
 
 function ShowFiles(subject_id) {
@@ -44,7 +64,7 @@ function ShowFiles(subject_id) {
 	$.getJSON("../?r=file/getFilesJson&id="+subject_id, function(response) {
 		FileInfo = response;
 		
-		$("#lTitle").text(Subject.name);
+		$("#title").text(Subject.name);
 	
 		var items = [];
 		items.push('<a href="#" class="blocklink_highlight" onclick="ShowSubjects('+Subject.group_id+')">Vissza</a>');
@@ -59,6 +79,9 @@ function ShowFiles(subject_id) {
 		});
 		
 		$("#content").html(items.join(""));
+		
+		if (items.length == 1)
+			$("#content").append('<div class="error">Ehhez a tárgyhoz még nem töltöttek fel fájlokat.</div>');
 		
 		HideProgress();
 	});
@@ -90,4 +113,13 @@ function ShowProgress() {
 function HideProgress() {
 	$("#progress").hide();
 	$("#main").show();
+}
+
+function Count(collection, predicate) {
+	var Result = 0;
+	for (var i in collection) {
+		if (predicate(collection[i]))
+			Result++;
+	}
+	return Result;
 }
