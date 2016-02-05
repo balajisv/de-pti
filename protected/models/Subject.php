@@ -37,22 +37,6 @@ class Subject extends CActiveRecord
 		$str = new StringHelper();
 		return $str->substr($this->name, 0, 50);
 	}
-	
-	public function getFormattedType() {
-		switch ($this->group_id) {
-			case SUBJECT_REQUIRED:
-				return "Kötelező";
-			break;
-			
-			case SUBJECT_REQUIRED_CHOOSEABLE:
-				return "Kötelezően választható";
-			break;
-			
-			case SUBJECT_CHOSEABLE:
-				return "Szabadon választható";
-			break;
-		}
-	}
 
 	/**
 	 * @return array validation rules for model attributes.
