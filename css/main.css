@@ -57,6 +57,15 @@ div.news .title {
 	font-weight: bold;
 }
 
+div.news .title a, div.news .title a:visited, div.news .title a:link {
+	text-decoration: none;
+	color: #545454;
+}
+
+div.news .title a:hover {
+	color: #801F1F;
+}
+
 div.news .metadata {
 	font-size: 8pt;
 	color: #878787;
