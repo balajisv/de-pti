@@ -2,6 +2,14 @@
 Saját tartalom
 */
 
+#footer .left {
+	text-align: left;
+}
+
+#footer .right {
+	padding-top: 10px;
+}
+
 div.col-container {
 	display: table-row;
 }

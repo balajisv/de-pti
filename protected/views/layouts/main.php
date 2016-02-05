@@ -130,9 +130,18 @@
 		<div class="clear"></div>
 
 		<div id="footer">
-			A webhely használatával Ön automatikusan elfogadja a 
-			<?php print CHtml::link('webhely nyilatkozatait', array('site/page', 'view' => 'law')); ?>.<br/>
-			Copyright &copy; <?php echo date('Y'); ?>: TomiSoft
+			<div class="left">
+				A webhely használatával Ön automatikusan elfogadja a 
+				<?php print CHtml::link('webhely nyilatkozatait', array('site/page', 'view' => 'law')); ?>.<br/>
+				Copyright &copy; <?php echo date('Y'); ?>: TomiSoft
+			</div>
+			<div class="right">
+				<a href="https://github.com/std66/de-pti" target="_blank">Nyílt forráskódú webhely</a> |
+				<a href="https://github.com/std66/de-pti/issues" target="_blank">Hibák és javaslatok jelentése</a> |
+				<a href="https://github.com/std66/de-pti/blob/master/ApiDocumentation.md" target="_blank">API</a> |
+				<a href="m/index.html">Mobil</a>
+			</div>
+			<div class="clear"></div>
 		</div>
 		
 		<!-- Dialog box -->
