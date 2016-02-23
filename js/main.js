@@ -3,6 +3,23 @@ $(document).ready(function() {
 	CookieWarning();
 });
 
+//Elrejti a megadott azonosítójú elemet és tárolja egy sütiben, hogy azt ne jelenítsük meg többé.
+//(param) string ElementID: az elem azonosítója
+//(return) void
+function CookieHide(ElementID) {
+	setCookie("hide_" + ElementID, "true", 1000);
+	$("#" + ElementID).remove();
+}
+
+//Megjeleníti a megadott azonosítójú elemet, ha a felhasználó nem kérte annak elrejtését korábban.
+//(param) string ElementID: az elem azonosítója
+//(return) void
+function CheckDisplay(ElementID) {
+	if (getCookie("hide_" + ElementID) == "") {
+		$("#" + ElementID).show();
+	}
+}
+
 //A "table tbody.list" CSS selector-nak megfelelő táblázat sorait úgy módosítja,
 //hogy automatikusan kijelölődjön az a sor, amely felett az egér áll.
 //(return) void
@@ -106,8 +123,9 @@ function CookieWarning() {
 			\
 			<p>Mi azért használjuk a cookie-kat, hogy:\
 				<ol>\
-					<li>tudjuk, be vagy-e jelentkezve vagy sem</li>\
-					<li>tároljuk, hogy ezt az ablakot nem akarod látni egy jó ideig</li>\
+					<li>tudjuk, be vagy-e jelentkezve vagy sem,</li>\
+					<li>tároljuk, hogy ezt az ablakot nem akarod látni egy jó ideig,</li>\
+					<li>illetve néhány egyéb üzenetet is el tudj rejteni.</li>\
 				</ol>\
 			</p>\
 			\

@@ -12,7 +12,7 @@ $this->breadcrumbs=array(
 <?php
 	if (Yii::app()->user->getId()) {
 		print '
-			<div class="flash-notice">
+			<div class="flash-notice" id="completesubject_notice" style="display: none;">
 				Lehetősége van bejelölni azokat a tantárgyakat, amelyeket már teljesített. Így az
 				oldal ki fogja jelölni azokat a tantárgyakat, amelyeknek teljesíti az előfeltételeit, vagy
 				nincs előfeltétele. Ehhez használja a Telj. oszlopban lévő jelölőnégyzeteket.
@@ -28,7 +28,11 @@ $this->breadcrumbs=array(
 						az összes rá épülő tantárgy is eltávolításra kerül.
 					</li>
 				</ul>
+				<input type="button" onclick="CookieHide(\'completesubject_notice\')" value="Megértettem">
 			</div>
+			<script type="text/javascript">
+				CheckDisplay("completesubject_notice");
+			</script>
 		';
 		
 		if (Yii::app()->user->level >= 1) {
@@ -50,7 +54,7 @@ $this->breadcrumbs=array(
 	}
 	else {
 		print '
-			<div class="flash-success">
+			<div class="flash-success" id="why_register" style="display: none;">
 				Regisztrálj hozzánk, mert
 				<ul>
 					<li>megadhatod, mely tárgyakat teljesítetted, és mi megmutatjuk, mit vehetsz fel,</li>
@@ -58,7 +62,11 @@ $this->breadcrumbs=array(
 					<li>ha van valami hasznos anyagod, megoszthatod hallgatótársaiddal,</li>
 					<li>kiírhatsz ZH, vizsga és konzultációs időpontokat a tantárgyakhoz.</li>
 				</ul>
+				<input type="button" onclick="CookieHide(\'why_register\')" value="Ezt nem akarom többé látni">
 			</div>
+			<script type="text/javascript">
+				CheckDisplay("why_register");
+			</script>
 		';
 	}
 	
