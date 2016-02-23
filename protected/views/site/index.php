@@ -1,8 +1,5 @@
 <?php
 /* @var $this SiteController */
-
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/news.js', CClientScript::POS_HEAD);
-
 $this->pageTitle=Yii::app()->name . ' - Hírek';
 
 FbUtils::AddMetaTags(
@@ -35,14 +32,6 @@ if (Yii::app()->user->getId() && (Yii::app()->user->level >= 1)) {
 }
 
 ?>
-
-<!--
-<div style="margin-bottom: 10px;">
-	<b>Hírforrás:</b>
-	DE-PTI |
-	<?php //echo CHtml::link('inf.unideb.hu', array('site/index', 'source'=>'deik')); ?>
-</div>
--->
 
 <?php
 

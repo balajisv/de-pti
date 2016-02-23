@@ -21,9 +21,16 @@
 	<![endif]-->
 
 	<?php 
+		//jQuery + jQuery UI
 		Yii::app()->clientScript->registerCoreScript('jquery');
 		Yii::app()->getClientScript()->registerCoreScript( 'jquery.ui' );
 		Yii::app()->clientScript->registerCssFile(Yii::app()->clientScript->getCoreScriptUrl().'/jui/css/base/jquery-ui.css');
+		
+		//jQuery TimePicker plugin
+		Yii::app()->clientScript->registerCSSFile(Yii::app()->baseUrl . '/css/jquery-timepicker.css');
+		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery-addons/timepicker.js', CClientScript::POS_HEAD);
+		
+		//Saját dolgok
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/cookie.js', CClientScript::POS_HEAD);
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/main.js', CClientScript::POS_HEAD);
 	?>

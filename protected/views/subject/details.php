@@ -1,7 +1,5 @@
 <?php
 
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/subjectdetails.js', CClientScript::POS_HEAD);
-
 $this->pageTitle=Yii::app()->name . ' - ' . $data->name;
 
 $this->breadcrumbs=array(

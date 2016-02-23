@@ -1,10 +1,5 @@
 <?php
 /* @var $this EventController */
-
-Yii::app()->clientScript->registerCSSFile(Yii::app()->baseUrl . '/css/jquery-timepicker.css');
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/jquery-addons/timepicker.js', CClientScript::POS_HEAD);
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/event.js', CClientScript::POS_HEAD);
-
 $this->pageTitle=Yii::app()->name . ' - Események - ' . $model->name;
 
 $this->breadcrumbs=array(

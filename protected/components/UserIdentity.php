@@ -24,11 +24,11 @@ class UserIdentity extends CUserIdentity
 		
 		if ($model == null) {
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
-			$this->errorMessage = "Hibás felhasználónév";
+			$this->errorMessage = "Hibás felhasználónév vagy jelszó";
 		}
 		else if ($model->password != sha1(md5($this->password))) {
 			$this->errorCode = self::ERROR_PASSWORD_INVALID;
-			$this->errorMessage = "Hibás jelszó";
+			$this->errorMessage = "Hibás felhasználónév vagy jelszó";
 		}
 		else {
 			$this->UserID = $model->user_id;

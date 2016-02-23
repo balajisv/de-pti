@@ -1,5 +1,6 @@
 var SubjectInfo;
 
+//Az oldal betöltésének befejeztével lekérjük a tárgycsoportok és tantárgyak adatait
 $(document).ready(function() {
 	$.getJSON("../?r=subject/getSubjectsJson", function(response) {
 		SubjectInfo = response;
@@ -9,6 +10,8 @@ $(document).ready(function() {
 	});
 });
 
+//Megjeleníti a tantárgycsoportokat
+//(return) void
 function ShowSubjectGroups() {
 	$("#title").text("Tárgycsoportok");
 	
@@ -31,6 +34,9 @@ function ShowSubjectGroups() {
 		$("#content").html('<div class="error">Nincsenek tárgycsoportok.</div>');
 }
 
+//Megjeleníti az adott tantárgycsoportban lévő tantárgyakat
+//(param) int group_id: a tantárgycsoport azonosítója
+//(return) void
 function ShowSubjects(group_id) {
 	HideProgress();
 		
@@ -55,6 +61,9 @@ function ShowSubjects(group_id) {
 		$("#content").append('<div class="error">Ehhez a tárgycsoporthoz nem tartoznak tantárgyak.</div>');
 }
 
+//Megjeleníti az adott tantárgyhoz tartozó fájlokat
+//(param) int subject_id: a tantárgy azonosítója
+//(return) void
 function ShowFiles(subject_id) {
 	ShowProgress();
 	
@@ -87,15 +96,21 @@ function ShowFiles(subject_id) {
 	});
 }
 
+//Visszaadja a megadott azonosítójú tantárgy adatait
+//(param) int subject_id: a tantárgy azonosítója
+//(return) object: a tantárgy adatai; null, ha nincs ilyen azonosítójú tantárgy
 function GetSubjectByID(subject_id) {
 	for (var i in SubjectInfo.subjects) {
 		if (SubjectInfo.subjects[i].subject_id == subject_id)
 			return SubjectInfo.subjects[i];
 	}
 	
-	return "";
+	return null;
 }
 
+//Megadja az adott tantárgycsoport nevét
+//(param) int group_id: a tantárgycsoport azonosítója
+//(return) string: a tantárgycsoport neve vagy üres string, ha nincs ilyen azonosítójú tantárgycsoport
 function GetGroupNameByID(group_id) {
 	for (var i in SubjectInfo.groups) {
 		if (SubjectInfo.groups[i].group_id == group_id)
@@ -105,16 +120,24 @@ function GetGroupNameByID(group_id) {
 	return "";
 }
 
+//Elrejti a tartalmat és megjeleníti a folyamatjelzőt
+//(return) void
 function ShowProgress() {
 	$("#progress").show();
 	$("#main").hide();
 }
 
+//Elrejti a folyamatjelzőt és megjeleníti a tartalmat
+//(return) void
 function HideProgress() {
 	$("#progress").hide();
 	$("#main").show();
 }
 
+//Egy tömbben megadja az egy adott feltételnek megfelelő elemek számát
+//(param) object[] collection: a tömb
+//(param) function predicate: egy egyparaméteres logikai eredményű függvény
+//(return) int: azon elemek száma, amely a feltételnek megfeleltek
 function Count(collection, predicate) {
 	var Result = 0;
 	for (var i in collection) {

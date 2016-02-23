@@ -1,7 +1,5 @@
 <?php
 
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/user_list.js', CClientScript::POS_HEAD);
-
 $this->pageTitle=Yii::app()->name . ' - Felhasználók';
 $this->breadcrumbs=array(
 	'Felhasználók',

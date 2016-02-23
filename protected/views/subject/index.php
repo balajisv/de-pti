@@ -32,18 +32,20 @@ $this->breadcrumbs=array(
 		';
 		
 		if (Yii::app()->user->level >= 1) {
+			print '<p>';
+			
 			print '
-				<p>
-					<form method="post" action="'.Yii::app()->createUrl('subject/editSubject').'">
-						Új tantárgy létrehozása:<br/>
-						<input type="text" name="name" placeholder="Tantárgy neve" style="width: 240px;"/>
-						<input type="text" name="semester" placeholder="Félév" style="width: 50px;"/>
-						<input type="text" name="credits" placeholder="Kreditérték" style="width: 70px;"/>
-						'.CHtml::dropDownList('type', '', CHtml::listData($groups, 'group_id', 'group_name')).'
-						<input type="submit" value="Mentés"/>
-					</form>
-				</p>
+				<form method="post" action="'.Yii::app()->createUrl('subject/editSubject').'">
+					Új tantárgy létrehozása:<br/>
+					<input type="text" name="name" placeholder="Tantárgy neve" style="width: 240px;"/>
+					<input type="text" name="semester" placeholder="Félév" style="width: 50px;"/>
+					<input type="text" name="credits" placeholder="Kreditérték" style="width: 70px;"/>
+					'.CHtml::dropDownList('type', '', CHtml::listData($groups, 'group_id', 'group_name')).'
+					<input type="submit" value="Mentés"/>
+				</form>
 			';
+			
+			print '</p>';
 		}
 	}
 	else {

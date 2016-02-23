@@ -1,6 +1,5 @@
 <?php
 
-Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/file_upload.js', CClientScript::POS_HEAD);
 Flaticon::Register("/css/flaticon");
 
 $this->pageTitle=Yii::app()->name . ' - Fájlok - ' . $data->name;
