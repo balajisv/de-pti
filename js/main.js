@@ -368,3 +368,56 @@ function ShowSetLevelDialog(targetUrl) {
 		}
 	});
 }
+
+//Új tantárgyat ír ki
+//(param) array[][int,string] subjectGroups: Egy kétdimenziós tömb, amely a tárgycsoportok azonosítóját és nevét tartalmazza
+//(return) void
+function ShowNewSubjectDialog(subjectGroups) {
+	var groups = [];
+	$.each(subjectGroups, function(key, value) {
+		groups.push('<option value="'+value[0]+'">'+value[1]+'</option>');
+	});
+	
+	$("#mbText").html('\
+		<form method="post" name="frmNewSubject" action="index.php?r=subject/editSubject">\
+			<table>\
+				<tbody>\
+					<tr>\
+						<td>Tantárgy neve:</td>\
+						<td><input type="text" name="name" style="width: 200px;"></td>\
+					</tr>\
+					<tr>\
+						<td>Kreditérték:</td>\
+						<td><input type="text" name="credits" style="width: 200px;"></td>\
+					</tr>\
+					<tr>\
+						<td>Ajánlott félév:</td>\
+						<td><input type="text" name="semester" style="width: 200px;"></td>\
+					</tr>\
+					<tr>\
+						<td>Tárgycsoport:</td>\
+						<td>\
+							<select name="type">\
+								'+groups.join('')+'\
+							</select>\
+						</td>\
+					</tr>\
+				</tbody>\
+			</table>\
+		</form>\
+	');
+	
+	$("#messageBox").dialog({
+		width: 400,
+		height: 250,
+		resizable: false,
+		modal: true,
+		closeOnEscape: false,
+		title: "Új tantárgy felvétele",
+		buttons: {
+			'Mentés': function() {
+				$('[name="frmNewSubject"]').submit();
+			},
+		}
+	});
+}
