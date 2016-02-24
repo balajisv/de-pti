@@ -70,7 +70,8 @@ A válaszként kapott JSON dokumentum felépítése sikeres működés esetén:
       "filename": A fájl neve a kiterjesztéssel együtt (string),
       "downloads": Hány alkalommal töltötték le a fájlt (int),
       "size": A fájl mérete bájtokban (int),
-      "description": A fájl leírása (string)
+      "description": A fájl leírása (string),
+	  "localname": A fájl helyi neve, csak tulajdonos szintű bejelentkezés esetén (string)
    },
    ...
 ]

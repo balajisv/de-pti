@@ -22,7 +22,7 @@ class FileController extends Controller
 		
 		$data = array();
 		foreach ($model->files as $File) {
-			$data[] = array(
+			$FileData = array(
 				"file_id" => (int)$File->file_id,
 				"uploader" => $File->user->username,
 				"filename" => $File->filename_real,
@@ -30,6 +30,11 @@ class FileController extends Controller
 				"size" => filesize("upload/".$File->filename_local),
 				"description" => $File->description,
 			);
+			
+			if (Yii::app()->user->getId() && Yii::app()->user->level == 2)
+				$FileData["localname"] = $File->filename_local;
+			
+			$data[] = $FileData;
 		}
 		
 		print json_encode($data);
