@@ -53,6 +53,10 @@ class File extends CActiveRecord
 		$Str = new StringHelper();
 		return $Str->substr($this->description, 0, 65);
 	}
+	
+	public function getAllVotes() {
+		return $this->vote_useful + $this->vote_useless;
+	}
 
 	/**
 	 * @return array validation rules for model attributes.

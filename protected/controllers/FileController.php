@@ -178,6 +178,8 @@ class FileController extends Controller
 		else
 			$model->vote_useless++;
 		
+		$model->save();
+		
 		$this->redirect(Yii::App()->createUrl("file/list", array("id" => $model->subject_id)));
 	}
 
