@@ -13,6 +13,8 @@
  * @property string $description
  * @property string $date_created
  * @property string $date_updated
+ * @property integer $vote_useful
+ * @property integer $vote_useless
  */
 class File extends CActiveRecord
 {
@@ -61,7 +63,7 @@ class File extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('subject_id, user_id, filename_local, filename_real, date_created, date_updated', 'required'),
-			array('subject_id, user_id, downloads', 'numerical', 'integerOnly'=>true),
+			array('subject_id, user_id, downloads, vote_useful, vote_useless', 'numerical', 'integerOnly'=>true),
 			array('filename_local', 'length', 'max'=>250),
 			array('description', 'safe'),
 			// The following rule is used by search().
@@ -98,6 +100,8 @@ class File extends CActiveRecord
 			'description' => 'Leírás',
 			'date_created' => 'Létrehozva',
 			'date_updated' => 'Módosítva',
+			'vote_useful' => 'Hasznos értékelések száma',
+			'vote_useless' => 'Nem hasznos értékelések száma'
 		);
 	}
 

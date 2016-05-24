@@ -29,6 +29,8 @@ class FileController extends Controller
 				"downloads" => (int)$File->downloads,
 				"size" => filesize("upload/".$File->filename_local),
 				"description" => $File->description,
+				"votes_useful" => 0,
+				"votes_useless" => 0
 			);
 			
 			if (Yii::app()->user->getId() && Yii::app()->user->level == 2)
@@ -154,6 +156,29 @@ class FileController extends Controller
 		File::model()->deleteByPk($id);
 		
 		$this->redirect(Yii::App()->createUrl("file/list", array("id" => $SubjectId)));
+	}
+	
+	/**
+	 * Értékelést ad le a megadott fájlra.
+	 * 
+	 * @param int $id A fájl azonosítója
+	 * @param int $useful Hasznos-e a fájl
+	 * @throws CHttpException Ha a kért fájl nem létezik
+	 */
+	public function actionVote($id, $useful) {
+		$id = (int)$id;
+		$useful = (boolean)$useful;
+		
+		$model = File::model()->findByPk($id);
+		if ($model == null)
+			throw new CHttpException(404, "A kért elem nem található");
+
+		if ($useful)
+			$model->vote_useful++;
+		else
+			$model->vote_useless++;
+		
+		$this->redirect(Yii::App()->createUrl("file/list", array("id" => $model->subject_id)));
 	}
 
 	// Uncomment the following methods and override them if needed
