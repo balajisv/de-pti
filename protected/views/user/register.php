@@ -33,35 +33,35 @@ $this->breadcrumbs=array(
 				'clientOptions'=>array(
 					'validateOnSubmit'=>true,
 				),
-				'htmlOptions' => [
+				'htmlOptions' => array(
 					'class' => 'form-signin'
-				]
+				)
 			)); ?>
 
 			<?php 
-				print $form->textField($model,'username', [
+				print $form->textField($model,'username', array(
 					'class' => 'form-control',
 					'required',
 					'placeholder' => 'Felhasználónév'
-				]);
+				));
 			?>
 
 			<?php
-				print $form->passwordField($model,'password', [
+				print $form->passwordField($model,'password', array(
 					'class' => 'form-control',
 					'required',
 					'placeholder' => 'Jelszó (legalább 6 karakter)'
-				]);
+				));
 			?>
 		
 			<input type="password" name="User[verifypassword]" class="form-control" required placeholder="Jelszó újra">
 		
 			<?php 
-				print $form->textField($model,'email', [
+				print $form->textField($model,'email', array(
 					'class' => 'form-control',
 					'required',
 					'placeholder' => 'E-Mail cím'
-				]);
+				));
 			?>
 			
 			<?php if(CCaptcha::checkRequirements()): ?>
@@ -76,9 +76,9 @@ $this->breadcrumbs=array(
 			<?php endif; ?>
 
 			<?php
-				print CHtml::submitButton('Regisztráció', [
+				print CHtml::submitButton('Regisztráció', array(
 					'class' => 'btn btn-lg btn-primary form-control'
-				]);
+				));
 			?>
 
 			<?php $this->endWidget(); ?>
