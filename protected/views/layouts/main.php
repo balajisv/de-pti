@@ -16,7 +16,7 @@ $SubjectsSubmenu = array(
 	)
 );
 
-foreach (SubjectGroup::model()->findAll() as $SubjectGroup) {
+foreach (SubjectGroup::model()->findAll(array('order' => 'group_id')) as $SubjectGroup) {
 	$SubjectsSubmenu[] = array(
 		'label' => $SubjectGroup->group_name,
 		'url' => array("subject/index", 'group_id' => $SubjectGroup->group_id)
