@@ -53,7 +53,12 @@ function DisplayBox($Title, $Content, $ImageURL, $SiteURL) {
 				"images/siteimage_neptun.png",
 				"http://neptun.unideb.hu/login.php?user=student"
 			);
-			
+		?>
+		
+	</div>
+	<div class="row">
+		
+		<?php	
 			DisplayBox(
 				"DE Informatikai Kar",
 				"A Debreceni Egyetem Informatikai karának honlapja.",
