@@ -2,7 +2,7 @@
 
 Flaticon::Register("/css/flaticon");
 
-$this->pageTitle=Yii::app()->name . ' - Fájlok - ' . $data->name;
+$this->pageTitle = "Tananyagok";
 
 $this->breadcrumbs=array(
 	'Tantárgyak' => array('subject/index'),
@@ -31,59 +31,67 @@ $UploadLimit = $formatter->formatSize(GetMaxUploadFileSize());
 
 ?>
 
-<h1>Tantárgyhoz kapcsolódó fájlok</h1>
-<h4><?php print $data->name; ?></h4>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h2><?php print $data->name; ?></h2>
+		</div>
+	</div>
 
-<?php if (Yii::app()->user->getId()): ?>
-<div style="margin-bottom: 10px;">
-	<button onclick="ShowUploadDialog('<?php print $form_target; ?>', '<?php print $UploadLimit; ?>', '<?php print GetMaxUploadFileSize(); ?>')">Fájl feltöltése</button>
+	<?php if (Yii::app()->user->getId()): ?>
+	<div class="row">
+		<div class="col-xs-12">
+			<p>
+				<button class="btn btn-md btn-success" onclick="ShowUploadDialog('<?php print $form_target; ?>', '<?php print $UploadLimit; ?>', '<?php print GetMaxUploadFileSize(); ?>')">
+					<i class="fa fa-upload"></i>
+					Fájl feltöltése
+				</button>
+			</p>
+		</div>
+	</div>
+	<?php endif; ?>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<?php if ($data->filecount == 0): ?>
+				<div class="alert alert-info">
+					<p>
+						Még senki sem töltött fel fájlt ehhez a tantárgyhoz.
+						<?php
+							if (Yii::app()->user->getId())
+								print '
+									Ez egy remek lehetőség arra, hogy segíts a hallgatótársaidnak!
+									Kattints a <b>Fájl feltöltése</b> gombra, töltsd fel a jegyzeteidet, és bármit, ami
+									szerinted hasznos lehet a tantárgy teljesítéséhez!
+								';
+						?>
+					</p>
+				</div>
+			<?php else: ?>
+				<table class="table table-striped table-content-vertical-middle">
+					<thead>
+						<tr>
+							<th style="width: 20px;"></th>
+							<th>Fájlnév</th>
+							<th class="text-align-center">Letöltve</th>
+							<th class="text-align-center">Hasznos?</th>
+							<th class="text-align-center">Műveletek</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+					
+					<?php
+						foreach ($data->files as $Current) {
+							$this->renderPartial('_files', array(
+								'data' => $Current,
+							));
+						}
+					?>
+					
+					</tbody>
+				</table>
+			<?php endif; ?>
+		</div>
+	</div>
 </div>
-<?php endif; ?>
-
-<?php if ($data->filecount == 0): ?>
-<div class="flash-notice">
-	<table>
-		<tr>
-			<td style="width: 60px;"><img src="images/cryingsmiley.png" width="60" height="60"/></td>
-			<td>
-				Még senki sem töltött fel fájlt ehhez a tantárgyhoz.
-				<?php
-					if (Yii::app()->user->getId())
-						print '
-							Ez egy remek lehetőség arra, hogy segíts a hallgatótársaidnak!
-							Kattints a <b>Fájl feltöltése</b> gombra, töltsd fel a jegyzeteidet, és bármit, ami
-							szerinted hasznos lehet a tantárgy teljesítéséhez!
-						';
-				?>
-			</td>
-		</tr>
-	</table>
-</div>
-<?php else: ?>
-<table>
-	<thead>
-		<tr>
-			<th style="width: 20px;"></th>
-			<th>Fájlnév</th>
-			<th style="width: 30px; text-align: center;">Letöltve</th>
-			<th style="width: 100px; text-align: center;">Műveletek</th>
-		</tr>
-	</thead>
-	
-	<tbody class="list">
-	
-	<?php
-		foreach ($data->files as $Current) {
-			$this->renderPartial('_files', array(
-				'data' => $Current,
-			));
-		}
-	?>
-	
-	</tbody>
-</table>
-
-<script language="javascript" type="text/javascript">
-	ApplyHover();
-</script>
-<?php endif; ?>

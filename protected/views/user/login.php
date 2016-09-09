@@ -3,44 +3,36 @@
 /* @var $model LoginForm */
 /* @var $form CActiveForm  */
 
-$this->pageTitle=Yii::app()->name . ' - Bejelentkezés';
+$this->pageTitle = 'Bejelentkezés';
 $this->breadcrumbs=array(
 	'Bejelentkezés',
 );
 ?>
-<div style="text-align: center; margin: 0 auto;">
-<h1>Bejelentkezés</h1>
 
-<div class="form" style="margin: 0 auto;">
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'login-form',
-	'action'=>Yii::app()->createUrl('user/login'),
-	'enableClientValidation'=>false,
-	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
-	),
-)); ?>
+<div class="container">
+	<?php
+		if (isset($error)) {
+			print '
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="alert alert-danger">
+							<i class="fa fa-info-circle"></i>
+							'.$error.'
+						</div>
+					</div>
+				</div>
+			';
+		}
+	?>
 
-	<p class="note">A <span class="required">*</span>-gal jelölt mezők kitöltése kötelező.</p>
-	
-	<span style="color: #FF0000;">
-		<?php if (isset($error)) echo $error; ?>
-	</span>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Bejelentkezés'); ?>
-	</div>
-
-<?php $this->endWidget(); ?>
-</div><!-- form -->
+	<form class="form-signin" method="post" action="<?php print Yii::app()->createUrl('user/login'); ?>">
+		<label for="username" class="sr-only">Felhasználónév</label>
+		<input type="text" name="User[username]" id="username" class="form-control" placeholder="Felhasználónév" required autofocus>
+		
+		<label for="password" class="sr-only">Jelszó</label>
+		<input type="password" name="User[password]" id="password" class="form-control" placeholder="Jelszó" required>
+		
+		<button class="btn btn-lg btn-success btn-block" type="submit">Bejelentkezés</button>
+		<a class="btn btn-md btn-default btn-block" href="<?php print Yii::app()->createUrl('user/register'); ?>">Én is szeretnék tag lenni!</a>
+	</form>
 </div>

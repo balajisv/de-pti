@@ -1,57 +1,111 @@
 <?php
 
-$this->pageTitle=Yii::app()->name . ' - Események';
+$this->pageTitle = 'Közelgő események';
 
 ?>
 
-<h1>Események</h1>
+<div class="container">
+	<?php
+		if (!Yii::app()->user->isGuest) {
+			print '
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="alert alert-info">
+							<p>
+								<i class="fa fa-info-circle"></i>
+								Tudsz valami olyan eseményt, amit még nem látsz itt? A "Tantárgyak" menüpontban
+								megoszthatod velünk!
+							</p>
+						</div>
+					</div>
+				</div>
+			';
+		}
+	?>
+
+	<div class="row">
+		<div class="col-xs-12">
 
 <?php
 
 if (count($model) == 0) {
 	print '
-		<div class="flash-notice">
+		<div class="alert alert-info">
+			<i class="fa fa-info-circle"></i>
 			Mostanában nem lesz semmi említésre méltó dolog...
 		</div>
 	';
 }
 else {
 	print '
-		<table>
-			<thead>
-				<tr>
-					<th style="width: 120px;">Időpont</th>
-					<th>Leírás</th>
-				</tr>
-			</thead>
-			<tbody class="list">
+		<ul class="timeline">
 	';
 	
+	$i = 1;
 	foreach ($model as $Current) {
+		$DeleteLink = "";
+		if (!Yii::app()->user->isGuest) {
+			$DeleteLink = CHtml::link(
+				'<i class="fa fa-trash"></i> Törlés',
+				array(
+					"event/delete",
+					"id" => $Current->event_id
+				),
+				array(
+					'class' => 'btn btn-sm btn-danger'
+				)
+			);
+		}
+		
+		$DetailsLink = CHtml::Link(
+			'Bővebben',
+			array(
+				'event/details',
+				'id' => $Current->event_id
+			),
+			array(
+				'class' => 'btn btn-sm btn-primary'
+			)
+		);
+		
 		print '
-				<tr>
-					<td>'.$Current->formattedTime.'</td>
-					<td>
-						<div style="font-size: 8pt;">
-							<b>['.$Current->formattedType.']</b> -
-							'.CHtml::Link($Current->subject->shortName, array('subject/details', 'id' => $Current->subject_id)).'
-						</div>
-						
-						'.CHtml::Link('[Részletek]', array('event/details', 'id' => $Current->event_id)).'
-						'.$Current->shortNotes.'
-					</td>
-				</tr>
+			<li'.($i % 2 == 0 ? ' class="timeline-inverted"' : '').'>
+				<div class="timeline-badge"></div>
+				<div class="timeline-panel">
+					<div class="timeline-heading">
+						<h4 class="timeline-title">
+							'.$Current->formattedType.'
+						</h4>
+						<p>
+							<small class="text-muted">
+								<i class="fa fa-clock-o"></i>
+								'.$Current->formattedTime.'<br>
+								<div class="cut-text">
+									'.CHtml::Link($Current->subject->name, array('subject/details', 'id' => $Current->subject_id)).'
+								</div>
+							</small>
+						</p>
+					</div>
+					<div class="timeline-body text-align-justify">
+						<p>'.$Current->shortNotes.'</p>
+						<p class="btn-group">
+							'.$DetailsLink.'
+							'.$DeleteLink.'
+						</p>
+					</div>
+				</div>
+			</li>
 		';
+		
+		$i++;
 	}
 	
 	print '
-			</tbody>
-		</table>
+		</ul>
 	';
 }
 
 ?>
-
-<script type="text/javascript">
-	ApplyHover();
-</script>
+		</div>
+	</div>
+</div>

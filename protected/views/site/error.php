@@ -2,14 +2,20 @@
 /* @var $this SiteController */
 /* @var $error array */
 
-$this->pageTitle=Yii::app()->name . ' - Hiba';
+$this->pageTitle='Valami nagyon félresikerült...';
 $this->breadcrumbs=array(
 	'Hiba',
 );
 ?>
 
-<h2>Hiba: <?php echo $code; ?></h2>
-
-<div class="error">
-<?php echo CHtml::encode($message); ?>
-</div>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="alert alert-danger" role="alert">
+					#<?php echo $code; ?>: <?php echo CHtml::encode($message); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

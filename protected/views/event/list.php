@@ -1,6 +1,6 @@
 <?php
 /* @var $this EventController */
-$this->pageTitle=Yii::app()->name . ' - Események - ' . $model->name;
+$this->pageTitle = "Események";
 
 $this->breadcrumbs=array(
 	'Tantárgyak' => array('subject/index'),
@@ -12,37 +12,50 @@ $CreateUrl = Yii::app()->createUrl("event/create", array("id" => $model->subject
 
 ?>
 
-<h1>Események</h1>
-
-<?php if (Yii::app()->user->getId()) { ?>
-	<div style="margin-bottom: 10px;">
-		<button onclick="CreateEvent('<?php print $CreateUrl; ?>')">Új esemény kiírása</button>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h2><?php print $model->name; ?></h2>
+		</div>
 	</div>
-<?php } ?>
-
-<table>
-	<thead>
-		<tr>
-			<th style="width: 150px;">Időpont</th>
-			<th style="text-align: center; width: 100px;">Típus</th>
-			<th>Megjegyzések</th>
-			<th style="text-align: center; width: 200px;">Műveletek</th>
-		</tr>
-	</thead>
 	
-	<tbody class="list">
-		<?php
-		
-		foreach ($events as $event) {
-			$this->renderPartial('_eventRow', array(
-				'event' => $event,
-			));
-		}
-		
-		?>
-	</tbody>
-</table>
-
-<script language="javascript" type="text/javascript">
-	ApplyHover();
-</script>
+	<?php if (Yii::app()->user->getId()) { ?>
+		<div class="row">
+			<div class="col-xs-12">
+				<p>
+					<button class="btn btn-md btn-success" onclick="CreateEvent('<?php print $CreateUrl; ?>')">
+						<i class="fa fa-plus-circle"></i>
+						Új esemény
+					</button>
+				</p>
+			</div>
+		</div>
+	<?php } ?>
+	
+	<div class="row">
+		<div class="col-xs-12">
+			<table class="table table-striped table-content-vertical-middle">
+				<thead>
+					<tr>
+						<th>Időpont</th>
+						<th class="text-align-center">Típus</th>
+						<th>Megjegyzések</th>
+						<th class="text-align-center">Műveletek</th>
+					</tr>
+				</thead>
+				
+				<tbody class="list">
+					<?php
+					
+					foreach ($events as $event) {
+						$this->renderPartial('_eventRow', array(
+							'event' => $event,
+						));
+					}
+					
+					?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

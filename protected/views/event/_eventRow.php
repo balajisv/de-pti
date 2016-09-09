@@ -1,17 +1,46 @@
 <tr>
 	<td><?php print $event->formattedTime; ?></td>
-	<td style="text-align: center;"><?php print $event->formattedType; ?></td>
+	<td class="text-align-center"><?php print $event->formattedType; ?></td>
 	<td><?php print $event->shortNotes; ?></td>
-	<td style="text-align: center;">
-		<?php
-		
-			print CHtml::link("[Adatok]", array("event/details", "id" => $event->event_id));
+	<td class="text-align-center">
+		<div class="btn-group">
+			<?php
 			
-			if (Yii::app()->user->getId()) {
-				print ' ' . CHtml::link("[Módosítás]", array("event/edit", "id" => $event->event_id)) . " ";
-				print CHtml::link("[Törlés]", array("event/delete", "id" => $event->event_id));
-			}
-		
-		?>
+				print CHtml::link(
+					'<i class="fa fa-info-circle"></i> Bővebben',
+					array(
+						"event/details", 
+						"id" => $event->event_id
+					),
+					array(
+						'class' => 'btn btn-primary btn-sm'
+					)
+				);
+				
+				if (Yii::app()->user->getId()) {
+					print CHtml::link(
+						'<i class="fa fa-edit"></i> Módosítás',
+						array(
+							"event/edit",
+							"id" => $event->event_id
+						),
+						array(
+							'class' => 'btn btn-sm btn-default'
+						)
+					);
+					
+					print CHtml::link(
+						'<i class="fa fa-trash"></i> Törlés',
+						array(
+							"event/delete",
+							"id" => $event->event_id
+						),
+						array(
+							'class' => 'btn btn-sm btn-danger'
+						)
+					);
+				}
+			?>
+		</div>
 	</td>
 </tr>

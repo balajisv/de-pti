@@ -57,7 +57,15 @@ class SubjectController extends Controller
 	 */
 	public function actionIndex($group_id = null)
 	{
-		$Groups = SubjectGroup::model()->with('subjects')->findAll(array('order' => 't.group_id'));
+		$Groups = array();
+		if (!isset($group_id)) {
+			$Groups = SubjectGroup::model()->with('subjects')->findAll(array(
+				'order' => 't.group_id',
+			));
+		}
+		else {
+			$Groups[] = SubjectGroup::model()->with('subjects')->find("t.group_id = $group_id");
+		}
 		
 		$userCompleted = array();
 		$completableSubjects = array();

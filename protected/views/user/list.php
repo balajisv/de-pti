@@ -1,46 +1,50 @@
 <?php
 
-$this->pageTitle=Yii::app()->name . ' - Felhasználók';
+$this->pageTitle = "Regisztrált tagok";
 $this->breadcrumbs=array(
-	'Felhasználók',
+	"Regisztrált tagok",
 );
 
 ?>
 
-<h1>Felhasználók</h1>
-
-<table>
-	<thead>
-		<tr>
-			<th>Felhasználónév</th>
-			<th>E-Mail cím</th>
-			<th style="text-align: center;">Szint</th>
-			<th style="text-align: center;">Regisztrált</th>
-			<th>Műveletek</th>
-		</tr>
-	</thead>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<table class="table table-content-vertical-middle">
+				<thead>
+					<tr>
+						<th>Felhasználónév</th>
+						<th>E-Mail cím</th>
+						<th class="text-align-center">Szint</th>
+						<th class="text-align-center">Regisztrált</th>
+						<th class="text-align-center">Műveletek</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<?php
+					
+					foreach ($data as $Current) {
+						$this->renderPartial('_list_row', array(
+							'data' => $Current,
+						));
+					}
+					
+					?>
+				</tbody>
+			</table>
+		</div>
+	</div>
 	
-	<tbody class="list">
-		<?php
-		
-		foreach ($data as $Current) {
-			$this->renderPartial('_list_row', array(
-				'data' => $Current,
+	<div class="row">
+		<div class="col-xs-12 text-align-center">
+			<?php
+
+			$this->widget('CLinkPager', array(
+				'pages' => $pager,
 			));
-		}
-		
-		?>
-	</tbody>
-</table>
 
-<script language="javascript" type="text/javascript">
-	ApplyHover();
-</script>
-
-<?php
-
-$this->widget('CLinkPager', array(
-	'pages' => $pager,
-));
-
-?>
+			?>
+		</div>
+	</div>
+</div>

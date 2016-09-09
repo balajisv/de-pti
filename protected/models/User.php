@@ -87,6 +87,13 @@ class User extends CActiveRecord
 				'select' => 'SUM(credits)',
 				'defaultValue' => 0
 			),
+			'CompletedSubjectCount' => array(
+				self::STAT,
+				'Subject', 
+				'pti_user_subjects(user_id, subject_id)',
+				'select' => 'COUNT(*)',
+				'defaultValue' => 0
+			),
 		);
 	}
 

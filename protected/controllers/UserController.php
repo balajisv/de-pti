@@ -122,10 +122,32 @@ class UserController extends Controller {
 		
 		$model = User::model()->with('CompletedSubjects', 'CompletedCredits')->findByPk($id);
 		
+		if ($model == null) {
+			throw new CHttpException(404, 'Úgy tűnik, hogy ez a felhasználói fiók nem létezik.');
+		}
+		
 		$this->render('completedsubjects', array(
 			"subjects" => $model->CompletedSubjects,
 			"creditsCompleted" => $model->CompletedCredits,
 			"user" => $model
+		));
+	}
+	
+	public function actionProfile($id) {
+		$id = (int)$id;
+		
+		if (Yii::app()->user->getId() != $id) {
+			throw new CHttpException(403, 'Ennek megtekintéséhez nincs jogosultságod!');
+		}
+		
+		$model = User::model()->with('CompletedSubjectCount', 'CompletedCredits')->findByPk($id);
+		
+		if ($model == null) {
+			throw new CHttpException(404, 'Úgy tűnik, hogy ez a felhasználói fiók nem létezik.');
+		}
+		
+		$this->render('profile', array(
+			"model" => $model
 		));
 	}
 	

@@ -43,6 +43,8 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{	
+		$this->layout = "full-header";
+	
 		$pager = new CPagination(News::model()->count('1'));
 		$pager->pageSize = 5;
 		

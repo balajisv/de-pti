@@ -6094,3 +6094,658 @@ Stack trace:
 #6 D:\WebRoot\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
 #7 D:\WebRoot\de-pti\index-test.php(15): CWebApplication->run()
 REQUEST_URI=/de-pti/index-test.php?r=user/incrementAbsenteeism&subject_id=7
+2016/09/06 22:58:38 [error] [exception.CDbException] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+2016/09/06 22:58:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in D:\XAMPP\htdocs\de-pti\framework\db\CDbConnection.php:387
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 D:\XAMPP\htdocs\de-pti\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 D:\XAMPP\htdocs\de-pti\framework\base\CModule.php(387): CDbConnection->init()
+#3 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(438): CModule->getComponent('db')
+#4 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(623): CApplication->getDb()
+#5 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(2309): CActiveRecord->getDbConnection()
+#6 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(News))
+#7 D:\XAMPP\htdocs\de-pti\protected\models\News.php(24): CActiveRecord::model('News')
+#8 D:\XAMPP\htdocs\de-pti\protected\controllers\SiteController.php(46): News::model()
+#9 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('')
+#14 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#15 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#17 {main}
+REQUEST_URI=/de-pti/
+---
+2016/09/06 22:58:54 [error] [exception.CDbException] SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+2016/09/06 22:58:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in D:\XAMPP\htdocs\de-pti\framework\db\CDbConnection.php:387
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 D:\XAMPP\htdocs\de-pti\framework\db\CDbConnection.php(308): CDbConnection->setActive(true)
+#2 D:\XAMPP\htdocs\de-pti\framework\base\CModule.php(387): CDbConnection->init()
+#3 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(438): CModule->getComponent('db')
+#4 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(623): CApplication->getDb()
+#5 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(2309): CActiveRecord->getDbConnection()
+#6 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct(Object(News))
+#7 D:\XAMPP\htdocs\de-pti\protected\models\News.php(24): CActiveRecord::model('News')
+#8 D:\XAMPP\htdocs\de-pti\protected\controllers\SiteController.php(46): News::model()
+#9 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('')
+#14 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#15 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#17 {main}
+REQUEST_URI=/de-pti/
+---
+2016/09/06 23:06:02 [error] [exception.CException] exception 'CException' with message 'A tulajdonság "SiteController.content" nincs definiálva.' in D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\protected\views\layouts\main.php(132): CComponent->__get('content')
+#1 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#2 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#3 D:\XAMPP\htdocs\de-pti\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#4 D:\XAMPP\htdocs\de-pti\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#5 D:\XAMPP\htdocs\de-pti\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(206): COutputProcessor->run()
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#8 D:\XAMPP\htdocs\de-pti\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(784): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#12 D:\XAMPP\htdocs\de-pti\protected\controllers\SiteController.php(58): CController->render('index', Array)
+#13 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#14 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#16 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('')
+#18 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#19 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#20 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#21 {main}
+REQUEST_URI=/de-pti/
+---
+2016/09/06 23:42:02 [error] [php] Undefined variable: data (D:\XAMPP\htdocs\de-pti\protected\views\site\show.php:14)
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\XAMPP\htdocs\de-pti\protected\controllers\SiteController.php(38): SiteController->render()
+#3 unknown(0): SiteController->actionShowNews()
+#4 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): SiteController->runAction()
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): SiteController->run()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 D:\XAMPP\htdocs\de-pti\index.php(39): CWebApplication->run()
+REQUEST_URI=/de-pti/index.php?r=site/showNews&id=2
+2016/09/07 00:05:11 [error] [php] Undefined variable: data (D:\XAMPP\htdocs\de-pti\protected\views\layouts\main.php:54)
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#1 D:\XAMPP\htdocs\de-pti\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#2 D:\XAMPP\htdocs\de-pti\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(206): CContentDecorator->run()
+#4 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(300): SiteController->endWidget()
+#5 D:\XAMPP\htdocs\de-pti\protected\views\layouts\full-header.php(24): SiteController->endContent()
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require()
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(784): SiteController->renderFile()
+#9 D:\XAMPP\htdocs\de-pti\protected\controllers\SiteController.php(60): SiteController->render()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams()
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): SiteController->runAction()
+#13 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#14 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): SiteController->run()
+#15 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 D:\XAMPP\htdocs\de-pti\index.php(39): CWebApplication->run()
+REQUEST_URI=/de-pti/
+2016/09/07 00:10:36 [error] [exception.CException] exception 'CException' with message 'A SubjectController hibásan egymásbaágyazott widget címkéket tartalmaz a "D:\XAMPP\htdocs\de-pti\protected\views//layouts/small-header.php" nézetében. A CContentDecorator widgethez nem tartozik endWidget() hívás.' in D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php:101
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(784): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#1 D:\XAMPP\htdocs\de-pti\protected\controllers\SubjectController.php(85): CController->render('index', Array)
+#2 [internal function]: SubjectController->actionIndex(NULL)
+#3 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(SubjectController), Array)
+#4 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SubjectController), Object(ReflectionMethod), Array)
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('subject/index')
+#10 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#12 {main}
+REQUEST_URI=/de-pti/?r=subject/index
+---
+2016/09/07 00:25:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "asd/asd".' in D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('asd/asd')
+#1 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#3 {main}
+REQUEST_URI=/de-pti/?r=asd/asd
+---
+2016/09/07 00:26:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "asd/asd".' in D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('asd/asd')
+#1 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#3 {main}
+REQUEST_URI=/de-pti/?r=asd/asd
+---
+2016/09/07 00:27:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "asd/asd".' in D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('asd/asd')
+#1 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#3 {main}
+REQUEST_URI=/de-pti/?r=asd/asd
+---
+2016/09/07 00:27:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "asd/asd".' in D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('asd/asd')
+#1 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#3 {main}
+REQUEST_URI=/de-pti/?r=asd/asd
+---
+2016/09/07 00:30:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "asd/asd".' in D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('asd/asd')
+#1 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#3 {main}
+REQUEST_URI=/de-pti/?r=asd/asd
+---
+2016/09/07 00:30:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "asd/asd".' in D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('asd/asd')
+#1 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#3 {main}
+REQUEST_URI=/de-pti/?r=asd/asd
+---
+2016/09/07 00:31:13 [error] [exception.CException] exception 'CException' with message 'A tulajdonság "File.vote_useful" nincs definiálva.' in D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(143): CComponent->__get('vote_useful')
+#1 D:\XAMPP\htdocs\de-pti\protected\models\File.php(58): CActiveRecord->__get('vote_useful')
+#2 D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php(111): File->getAllVotes()
+#3 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(143): CComponent->__get('allVotes')
+#4 D:\XAMPP\htdocs\de-pti\protected\views\file\_files.php(30): CActiveRecord->__get('allVotes')
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#8 D:\XAMPP\htdocs\de-pti\protected\views\file\list.php(79): CController->renderPartial('_files', Array)
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): CController->renderPartial('list', Array, true)
+#13 D:\XAMPP\htdocs\de-pti\protected\controllers\FileController.php(57): CController->render('list', Array)
+#14 [internal function]: FileController->actionList('2')
+#15 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(FileController), Array)
+#16 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(FileController), Object(ReflectionMethod), Array)
+#17 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('list')
+#21 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('file/list')
+#22 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#23 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#24 {main}
+REQUEST_URI=/de-pti/index.php?r=file/list&id=2
+HTTP_REFERER=http://localhost/de-pti/?r=subject/index
+---
+2016/09/07 12:19:28 [error] [exception.CException] exception 'CException' with message 'A tulajdonság "SubjectGroup.id" nincs definiálva.' in D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(143): CComponent->__get('id')
+#1 D:\XAMPP\htdocs\de-pti\protected\views\layouts\main.php(6): CActiveRecord->__get('id')
+#2 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#3 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#4 D:\XAMPP\htdocs\de-pti\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#5 D:\XAMPP\htdocs\de-pti\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('??<header>???<d...')
+#6 D:\XAMPP\htdocs\de-pti\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('??<header>???<d...')
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 D:\XAMPP\htdocs\de-pti\protected\views\layouts\full-header.php(26): CBaseController->endContent()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(784): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#13 D:\XAMPP\htdocs\de-pti\protected\controllers\SiteController.php(60): CController->render('index', Array)
+#14 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('index')
+#19 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#20 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#22 {main}
+REQUEST_URI=/de-pti/index.php?r=site/index
+HTTP_REFERER=http://localhost/de-pti/index.php?r=subject/index
+---
+2016/09/07 12:35:08 [error] [exception.CException] exception 'CException' with message 'A tulajdonság "File.vote_useful" nincs definiálva.' in D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(143): CComponent->__get('vote_useful')
+#1 D:\XAMPP\htdocs\de-pti\protected\models\File.php(58): CActiveRecord->__get('vote_useful')
+#2 D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php(111): File->getAllVotes()
+#3 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(143): CComponent->__get('allVotes')
+#4 D:\XAMPP\htdocs\de-pti\protected\views\file\_files.php(30): CActiveRecord->__get('allVotes')
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#8 D:\XAMPP\htdocs\de-pti\protected\views\file\list.php(79): CController->renderPartial('_files', Array)
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): CController->renderPartial('list', Array, true)
+#13 D:\XAMPP\htdocs\de-pti\protected\controllers\FileController.php(57): CController->render('list', Array)
+#14 [internal function]: FileController->actionList('2')
+#15 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(FileController), Array)
+#16 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(FileController), Object(ReflectionMethod), Array)
+#17 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('list')
+#21 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('file/list')
+#22 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#23 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#24 {main}
+REQUEST_URI=/de-pti/index.php?r=file/list&id=2
+HTTP_REFERER=http://localhost/de-pti/index.php?r=subject/index&0%5Bgroup_id%5D=2
+---
+2016/09/07 13:06:18 [error] [exception.CException] exception 'CException' with message 'A tulajdonság "File.vote_useful" nincs definiálva.' in D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(143): CComponent->__get('vote_useful')
+#1 D:\XAMPP\htdocs\de-pti\protected\models\File.php(58): CActiveRecord->__get('vote_useful')
+#2 D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php(111): File->getAllVotes()
+#3 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(143): CComponent->__get('allVotes')
+#4 D:\XAMPP\htdocs\de-pti\protected\views\file\_files.php(30): CActiveRecord->__get('allVotes')
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#8 D:\XAMPP\htdocs\de-pti\protected\views\file\list.php(79): CController->renderPartial('_files', Array)
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): CController->renderPartial('list', Array, true)
+#13 D:\XAMPP\htdocs\de-pti\protected\controllers\FileController.php(57): CController->render('list', Array)
+#14 [internal function]: FileController->actionList('2')
+#15 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(FileController), Array)
+#16 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(FileController), Object(ReflectionMethod), Array)
+#17 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('list')
+#21 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('file/list')
+#22 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#23 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#24 {main}
+REQUEST_URI=/de-pti/index.php?r=file/list&id=2
+HTTP_REFERER=http://localhost/de-pti/index.php?r=subject/index&0%5Bgroup_id%5D=1
+---
+2016/09/07 13:14:30 [error] [exception.CException] exception 'CException' with message 'A tulajdonság "File.vote_useful" nincs definiálva.' in D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(143): CComponent->__get('vote_useful')
+#1 D:\XAMPP\htdocs\de-pti\protected\models\File.php(58): CActiveRecord->__get('vote_useful')
+#2 D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php(111): File->getAllVotes()
+#3 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(143): CComponent->__get('allVotes')
+#4 D:\XAMPP\htdocs\de-pti\protected\views\file\_files.php(30): CActiveRecord->__get('allVotes')
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#8 D:\XAMPP\htdocs\de-pti\protected\views\file\list.php(79): CController->renderPartial('_files', Array)
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): CController->renderPartial('list', Array, true)
+#13 D:\XAMPP\htdocs\de-pti\protected\controllers\FileController.php(57): CController->render('list', Array)
+#14 [internal function]: FileController->actionList('2')
+#15 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(FileController), Array)
+#16 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(FileController), Object(ReflectionMethod), Array)
+#17 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('list')
+#21 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('file/list')
+#22 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#23 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#24 {main}
+REQUEST_URI=/de-pti/index.php?r=file/list&id=2
+HTTP_REFERER=http://localhost/de-pti/index.php?r=subject/index&0%5Bgroup_id%5D=1
+---
+2016/09/07 18:50:55 [error] [exception.CException] exception 'CException' with message 'A tulajdonság "CActiveForm.class" nincs definiálva.' in D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CWidgetFactory.php(161): CComponent->__set('class', 'form-signin')
+#1 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(UserController), 'CActiveForm', Array)
+#2 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(189): CBaseController->createWidget('CActiveForm', Array)
+#3 D:\XAMPP\htdocs\de-pti\protected\views\user\register.php(23): CBaseController->beginWidget('CActiveForm', Array)
+#4 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): CController->renderPartial('register', Array, true)
+#8 D:\XAMPP\htdocs\de-pti\protected\controllers\UserController.php(43): CController->render('register', Array)
+#9 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(49): UserController->actionRegister()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('register')
+#14 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('user/register')
+#15 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#17 {main}
+REQUEST_URI=/de-pti/index.php?r=user/register
+HTTP_REFERER=http://localhost/de-pti/index.php?r=user/login
+---
+2016/09/07 21:48:33 [error] [php] Undefined variable: data (D:\XAMPP\htdocs\de-pti\protected\views\site\show.php:14)
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\XAMPP\htdocs\de-pti\protected\controllers\SiteController.php(38): SiteController->render()
+#3 unknown(0): SiteController->actionShowNews()
+#4 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): SiteController->runAction()
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): SiteController->run()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 D:\XAMPP\htdocs\de-pti\index.php(39): CWebApplication->run()
+REQUEST_URI=/de-pti/index.php?r=site/showNews&id=2
+2016/09/07 21:48:40 [error] [php] Undefined variable: data (D:\XAMPP\htdocs\de-pti\protected\views\site\show.php:14)
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): SiteController->renderFile()
+#1 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): SiteController->renderPartial()
+#2 D:\XAMPP\htdocs\de-pti\protected\controllers\SiteController.php(38): SiteController->render()
+#3 unknown(0): SiteController->actionShowNews()
+#4 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): SiteController->runAction()
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): SiteController->run()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 D:\XAMPP\htdocs\de-pti\index.php(39): CWebApplication->run()
+REQUEST_URI=/de-pti/index.php?r=site/showNews&id=2
+2016/09/07 22:32:13 [error] [exception.CException] exception 'CException' with message 'A tulajdonság "CDbCriteria.where" nincs definiálva.' in D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\schema\CDbCriteria.php(160): CComponent->__set('where', 't.group_id = 1')
+#1 D:\XAMPP\htdocs\de-pti\framework\db\schema\CDbCommandBuilder.php(483): CDbCriteria->__construct(Array)
+#2 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(1415): CDbCommandBuilder->createCriteria(Array, Array)
+#3 D:\XAMPP\htdocs\de-pti\protected\controllers\SubjectController.php(63): CActiveRecord->findAll(Array)
+#4 [internal function]: SubjectController->actionIndex('1')
+#5 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(SubjectController), Array)
+#6 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SubjectController), Object(ReflectionMethod), Array)
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('index')
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('subject/index')
+#12 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#14 {main}
+REQUEST_URI=/de-pti/index.php?r=subject/index&group_id=1
+HTTP_REFERER=http://localhost/de-pti/index.php?r=site/index
+---
+2016/09/07 22:37:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'group_id' in where clause is ambiguous. The SQL statement executed was: SELECT `t`.`group_id` AS `t0_c0`, `t`.`group_name` AS `t0_c1`, `subjects`.`subject_id` AS `t1_c0`, `subjects`.`group_id` AS `t1_c1`, `subjects`.`name` AS `t1_c2`, `subjects`.`semester` AS `t1_c3`, `subjects`.`credits` AS `t1_c4`, `subjects`.`description` AS `t1_c5` FROM `pti_subject_groups` `t`  LEFT OUTER JOIN `pti_subject` `subjects` ON (`subjects`.`group_id`=`t`.`group_id`)  WHERE (group_id = 1) ORDER BY semester, name.
+2016/09/07 22:37:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand hibába ütközött az SQL parancs végrehajtása közben: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'group_id' in where clause is ambiguous' in D:\XAMPP\htdocs\de-pti\framework\db\CDbCommand.php:541
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveFinder.php(761): CDbCommand->queryAll()
+#2 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveFinder.php(422): CJoinElement->runQuery(Object(CJoinQuery))
+#3 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), false)
+#5 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#6 D:\XAMPP\htdocs\de-pti\protected\controllers\SubjectController.php(67): CActiveRecord->find('group_id = 1')
+#7 [internal function]: SubjectController->actionIndex('1')
+#8 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(SubjectController), Array)
+#9 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(SubjectController), Object(ReflectionMethod), Array)
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('index')
+#14 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('subject/index')
+#15 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#17 {main}
+REQUEST_URI=/de-pti/index.php?r=subject/index&group_id=1
+HTTP_REFERER=http://localhost/de-pti/index.php?r=site/index
+---
+2016/09/08 13:53:17 [error] [php] move_uploaded_file(upload/34aaa8e07d189367c298252b59615d5d3cbd769b.png): failed to open stream: No such file or directory (D:\XAMPP\htdocs\de-pti\framework\web\CUploadedFile.php:196)
+Stack trace:
+#0 unknown(0): FileController->actionUpload()
+#1 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#2 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#3 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): FileController->runAction()
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): FileController->runActionWithFilters()
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): FileController->run()
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#9 D:\XAMPP\htdocs\de-pti\index.php(39): CWebApplication->run()
+REQUEST_URI=/de-pti/index.php?r=file/upload&id=2
+2016/09/09 11:14:51 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in D:\XAMPP\htdocs\de-pti\framework\web\CController.php:336
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#2 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('editnews')
+#4 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('site/editnews')
+#5 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#7 {main}
+REQUEST_URI=/de-pti/index.php?r=site/editnews
+---
+2016/09/09 12:41:12 [error] [php] unlink(upload/34aaa8e07d189367c298252b59615d5d3cbd769b.png): No such file or directory (D:\XAMPP\htdocs\de-pti\protected\controllers\FileController.php:154)
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#1 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): FileController->runAction()
+#4 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): FileController->runActionWithFilters()
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): FileController->run()
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 D:\XAMPP\htdocs\de-pti\index.php(39): CWebApplication->run()
+REQUEST_URI=/de-pti/index.php?r=file/delete&id=1
+2016/09/09 14:40:00 [error] [php] Undefined variable: event (D:\XAMPP\htdocs\de-pti\protected\views\event\details.php:44)
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): EventController->renderFile()
+#1 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): EventController->renderPartial()
+#2 D:\XAMPP\htdocs\de-pti\protected\controllers\EventController.php(127): EventController->render()
+#3 unknown(0): EventController->actionDetails()
+#4 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): EventController->runAction()
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): EventController->runActionWithFilters()
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): EventController->run()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 D:\XAMPP\htdocs\de-pti\index.php(39): CWebApplication->run()
+REQUEST_URI=/de-pti/index.php?r=event/details&id=1
+2016/09/09 14:43:35 [error] [exception.CException] exception 'CException' with message 'CWebUser and its behaviors do not have a method or closure named "isGuest".' in D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php:265
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\protected\views\event\details.php(35): CComponent->__call('isGuest', Array)
+#1 D:\XAMPP\htdocs\de-pti\protected\views\event\details.php(35): CWebUser->isGuest()
+#2 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#3 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#4 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): CController->renderPartial('details', Array, true)
+#6 D:\XAMPP\htdocs\de-pti\protected\controllers\EventController.php(127): CController->render('details', Array)
+#7 [internal function]: EventController->actionDetails('1')
+#8 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(EventController), Array)
+#9 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(EventController), Object(ReflectionMethod), Array)
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('details')
+#14 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('event/details')
+#15 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#17 {main}
+REQUEST_URI=/de-pti/index.php?r=event/details&id=1
+HTTP_REFERER=http://localhost/de-pti/index.php?r=event/list&id=2
+---
+2016/09/09 14:48:39 [error] [php] Trying to get property of non-object (D:\XAMPP\htdocs\de-pti\protected\views\event\index.php:34)
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): EventController->renderFile()
+#1 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): EventController->renderPartial()
+#2 D:\XAMPP\htdocs\de-pti\protected\controllers\EventController.php(21): EventController->render()
+#3 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(49): EventController->actionIndex()
+#4 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): EventController->runAction()
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): EventController->runActionWithFilters()
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): EventController->run()
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 D:\XAMPP\htdocs\de-pti\index.php(39): CWebApplication->run()
+REQUEST_URI=/de-pti/index.php?r=event/index
+2016/09/09 14:52:08 [error] [exception.CException] exception 'CException' with message 'A tulajdonság "CWebApplication.isGuest" nincs definiálva.' in D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\base\CModule.php(105): CComponent->__get('isGuest')
+#1 D:\XAMPP\htdocs\de-pti\protected\views\event\index.php(9): CModule->__get('isGuest')
+#2 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#3 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#4 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#6 D:\XAMPP\htdocs\de-pti\protected\controllers\EventController.php(21): CController->render('index', Array)
+#7 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(49): EventController->actionIndex()
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('index')
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('event/index')
+#13 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#15 {main}
+REQUEST_URI=/de-pti/index.php?r=event/index
+HTTP_REFERER=http://localhost/de-pti/index.php?r=site/index
+---
+2016/09/09 15:37:40 [error] [php] Array to string conversion (D:\XAMPP\htdocs\de-pti\protected\views\user\profile.php:40)
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): UserController->renderFile()
+#1 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): UserController->renderPartial()
+#2 D:\XAMPP\htdocs\de-pti\protected\controllers\UserController.php(151): UserController->render()
+#3 unknown(0): UserController->actionProfile()
+#4 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): UserController->runAction()
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): UserController->runActionWithFilters()
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): UserController->run()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 D:\XAMPP\htdocs\de-pti\index.php(39): CWebApplication->run()
+REQUEST_URI=/de-pti/index.php?r=user/profile&id=1
+2016/09/09 15:38:51 [error] [exception.CException] exception 'CException' with message 'A tulajdonság "User.completedcredits" nincs definiálva.' in D:\XAMPP\htdocs\de-pti\framework\base\CComponent.php:130
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(143): CComponent->__get('completedcredit...')
+#1 D:\XAMPP\htdocs\de-pti\protected\views\user\profile.php(61): CActiveRecord->__get('completedcredit...')
+#2 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(126): require('D:\XAMPP\htdocs...')
+#3 D:\XAMPP\htdocs\de-pti\framework\web\CBaseController.php(95): CBaseController->renderInternal('D:\XAMPP\htdocs...', Array, true)
+#4 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): CBaseController->renderFile('D:\XAMPP\htdocs...', Array, true)
+#5 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): CController->renderPartial('profile', Array, true)
+#6 D:\XAMPP\htdocs\de-pti\protected\controllers\UserController.php(151): CController->render('profile', Array)
+#7 [internal function]: UserController->actionProfile('1')
+#8 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#9 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('profile')
+#14 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('user/profile')
+#15 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#17 {main}
+REQUEST_URI=/de-pti/index.php?r=user/profile&id=1
+HTTP_REFERER=http://localhost/de-pti/index.php?r=site/index
+---
+2016/09/09 15:45:59 [error] [php] Trying to get property of non-object (D:\XAMPP\htdocs\de-pti\protected\views\user\profile.php:63)
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): UserController->renderFile()
+#1 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): UserController->renderPartial()
+#2 D:\XAMPP\htdocs\de-pti\protected\controllers\UserController.php(151): UserController->render()
+#3 unknown(0): UserController->actionProfile()
+#4 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): UserController->runAction()
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): UserController->runActionWithFilters()
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): UserController->run()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 D:\XAMPP\htdocs\de-pti\index.php(39): CWebApplication->run()
+REQUEST_URI=/de-pti/index.php?r=user/profile&id=1
+2016/09/09 15:46:22 [error] [php] Trying to get property of non-object (D:\XAMPP\htdocs\de-pti\protected\views\user\profile.php:63)
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(869): UserController->renderFile()
+#1 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(782): UserController->renderPartial()
+#2 D:\XAMPP\htdocs\de-pti\protected\controllers\UserController.php(151): UserController->render()
+#3 unknown(0): UserController->actionProfile()
+#4 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): UserController->runAction()
+#8 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): UserController->runActionWithFilters()
+#9 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): UserController->run()
+#10 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 D:\XAMPP\htdocs\de-pti\index.php(39): CWebApplication->run()
+REQUEST_URI=/de-pti/index.php?r=user/profile&id=1
+2016/09/09 15:50:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'subject_id' in field list is ambiguous. The SQL statement executed was: SELECT SUM(subject_id) AS `s`, `pti_user_subjects`.`user_id` AS `c0` FROM `pti_subject` `t` INNER JOIN `pti_user_subjects` ON (`t`.`subject_id`=`pti_user_subjects`.`subject_id`) GROUP BY `pti_user_subjects`.`user_id` HAVING (`pti_user_subjects`.`user_id`=1).
+2016/09/09 15:50:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand hibába ütközött az SQL parancs végrehajtása közben: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'subject_id' in field list is ambiguous' in D:\XAMPP\htdocs\de-pti\framework\db\CDbCommand.php:541
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveFinder.php(1569): CDbCommand->queryAll()
+#2 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveFinder.php(1339): CStatElement->queryManyMany('pti_user_subjec...', 'user_id, subjec...')
+#3 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveFinder.php(437): CStatElement->query()
+#4 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#5 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), false)
+#6 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(1432): CActiveRecord->query(Object(CDbCriteria))
+#7 D:\XAMPP\htdocs\de-pti\protected\controllers\UserController.php(143): CActiveRecord->findByPk(1)
+#8 [internal function]: UserController->actionProfile('1')
+#9 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#10 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('profile')
+#15 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('user/profile')
+#16 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#18 {main}
+REQUEST_URI=/de-pti/index.php?r=user/profile&id=1
+HTTP_REFERER=http://localhost/de-pti/index.php?r=site/index
+---
+2016/09/09 15:51:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'subject_id' in field list is ambiguous. The SQL statement executed was: SELECT SUM(subject_id) AS `s`, `pti_user_subjects`.`user_id` AS `c0` FROM `pti_subject` `t` INNER JOIN `pti_user_subjects` ON (`t`.`subject_id`=`pti_user_subjects`.`subject_id`) GROUP BY `pti_user_subjects`.`user_id` HAVING (`pti_user_subjects`.`user_id`=1).
+in D:\XAMPP\htdocs\de-pti\protected\controllers\UserController.php (143)
+in D:\XAMPP\htdocs\de-pti\index.php (39)
+2016/09/09 15:51:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand hibába ütközött az SQL parancs végrehajtása közben: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'subject_id' in field list is ambiguous. The SQL statement executed was: SELECT SUM(subject_id) AS `s`, `pti_user_subjects`.`user_id` AS `c0` FROM `pti_subject` `t` INNER JOIN `pti_user_subjects` ON (`t`.`subject_id`=`pti_user_subjects`.`subject_id`) GROUP BY `pti_user_subjects`.`user_id` HAVING (`pti_user_subjects`.`user_id`=1)' in D:\XAMPP\htdocs\de-pti\framework\db\CDbCommand.php:541
+Stack trace:
+#0 D:\XAMPP\htdocs\de-pti\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveFinder.php(1569): CDbCommand->queryAll()
+#2 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveFinder.php(1339): CStatElement->queryManyMany('pti_user_subjec...', 'user_id, subjec...')
+#3 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveFinder.php(437): CStatElement->query()
+#4 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#5 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(1302): CActiveFinder->query(Object(CDbCriteria), false)
+#6 D:\XAMPP\htdocs\de-pti\framework\db\ar\CActiveRecord.php(1432): CActiveRecord->query(Object(CDbCriteria))
+#7 D:\XAMPP\htdocs\de-pti\protected\controllers\UserController.php(143): CActiveRecord->findByPk(1)
+#8 [internal function]: UserController->actionProfile('1')
+#9 D:\XAMPP\htdocs\de-pti\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#10 D:\XAMPP\htdocs\de-pti\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#11 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\XAMPP\htdocs\de-pti\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(282): CController->run('profile')
+#15 D:\XAMPP\htdocs\de-pti\framework\web\CWebApplication.php(141): CWebApplication->runController('user/profile')
+#16 D:\XAMPP\htdocs\de-pti\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 D:\XAMPP\htdocs\de-pti\index.php(39): CApplication->run()
+#18 {main}
+REQUEST_URI=/de-pti/index.php?r=user/profile&id=1
+HTTP_REFERER=http://localhost/de-pti/index.php?r=site/index
+---

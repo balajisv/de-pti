@@ -2,45 +2,51 @@
 
 Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl . '/js/user_list.js', CClientScript::POS_HEAD);
 
-$this->pageTitle=Yii::app()->name . ' - Felhasználók';
+$this->pageTitle = $user->username . " teljesített tantárgyai";
 $this->breadcrumbs=array(
 	'Felhasználók',
 );
 
 ?>
 
-<h1><?php print $user->username; ?> teljesített tantárgyai</h1>
-
-<p>
-	<?php print "Összesen $creditsCompleted kredit"; ?>
-</p>
-
-<table>
-	<thead>
-		<tr>
-			<th>Tantárgy</th>
-			<th style="text-align: center; width: 20px;">Félév</th>
-			<th style="text-align: center; width: 50px;">Kredit</th>
-		</tr>
-	</thead>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<p>
+				<?php print "Összesen $creditsCompleted szakmai kredit teljesítve."; ?>
+			</p>			
+		</div>
+	</div>
 	
-	<tbody class="list">
-		<?php
-		
-		foreach ($subjects as $CurrentSubject) {
-			print '
-				<tr>
-					<td>'.$CurrentSubject->shortName.'</td>
-					<td style="text-align: center;">'.$CurrentSubject->semester.'</td>
-					<td style="text-align: center;">'.$CurrentSubject->credits.'</td>
-				</tr>
-			';
-		}
-		
-		?>
-	</tbody>
-</table>
+	<div class="row">
+		<div class="col-xs-12">
+			<table class="table table-striped table-content-vertical-middle">
+				<thead>
+					<tr>
+						<th>Tantárgy</th>
+						<th class="text-align-center" style="width: 20px;">Félév</th>
+						<th class="text-align-center" style="width: 50px;">Kredit</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<?php
+					
+					foreach ($subjects as $CurrentSubject) {
+						print '
+							<tr>
+								<td>'.$CurrentSubject->shortName.'</td>
+								<td class="text-align-center" >'.$CurrentSubject->semester.'</td>
+								<td class="text-align-center" >'.$CurrentSubject->credits.'</td>
+							</tr>
+						';
+					}
+					
+					?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
 
-<script language="javascript" type="text/javascript">
-	ApplyHover();
-</script>
+
