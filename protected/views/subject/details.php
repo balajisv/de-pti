@@ -121,7 +121,7 @@ FbUtils::AddMetaTags(
 							<span class="input-group-btn" id="subject_add_button">
 								<button type="submit" class="btn btn-success">
 									<i class="fa fa-plus-circle"></i>
-									Hozzáadás
+									<span class="hidden-xs">Hozzáadás</span>
 								</button>
 							</span>
 						</div>
@@ -153,7 +153,11 @@ FbUtils::AddMetaTags(
 						foreach ($dependencies as $val) {
 							$RemoveLink = "";
 							if (Yii::app()->user->getId() && Yii::app()->user->level >= 1) {
-								$RemoveLink = CHtml::link("[X]", array('subject/removedependency', 'id' => $val["dependency_id"]));
+								$RemoveLink = CHtml::link(
+									'<i class="fa fa-times"></i> <span class="hidden-xs">Eltávolítás</span>',
+									array('subject/removedependency', 'id' => $val["dependency_id"]),
+									array('class' => 'btn btn-sm btn-danger')
+								);
 							}
 						
 							print '
@@ -239,6 +243,7 @@ FbUtils::AddMetaTags(
 					if (empty($data->description))
 						print '
 							<div class="alert alert-info">
+								<i class="fa fa-info-circle"></i>
 								Nincs leírás megadva ehhez a tantárgyhoz.
 							</div>
 						';
