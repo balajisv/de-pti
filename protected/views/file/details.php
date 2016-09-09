@@ -81,7 +81,9 @@ $FacebookUrl = Yii::app()->params['domain'] . Yii::App()->createUrl("file/detail
 	<div class="row">
 		<div class="col-xs-12">
 			<h3>Te is letöltötted? Mondd el a véleményed róla!</h3>
-			<div class="fb-comments" data-width="690" data-href="<?php print $FacebookUrl; ?>" data-numposts="5" data-colorscheme="light"></div>
+			<div class="text-align-center">
+				<div class="fb-comments" data-width="690" data-href="<?php print $FacebookUrl; ?>" data-numposts="5" data-colorscheme="light"></div>
+			</div>
 		</div>
 	</div>
 </div>
