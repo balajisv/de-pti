@@ -38,13 +38,15 @@ $this->breadcrumbs=array(
 	
 	<div class="row">
 		<div class="col-xs-12 text-align-center">
-			<?php
+			<p>
+				<?php
 
-			$this->widget('CLinkPager', array(
-				'pages' => $pager,
-			));
+				$this->widget('CLinkPager', array(
+					'pages' => $pager,
+				));
 
-			?>
+				?>
+			</p>
 		</div>
 	</div>
 </div>
