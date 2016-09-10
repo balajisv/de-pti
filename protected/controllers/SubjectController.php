@@ -53,18 +53,29 @@ class SubjectController extends Controller
 	 * felhasználó esetén figyelembe veszi azt is, hogy mely tantárgyak
 	 * vannak teljesítve, mit vehet és mit nem vehet fel.
 	 * 
-	 * @param int $group_id A tárgycsoport azonosítója. Deprecated, az értéke maradjon null.
+	 * @param int $group_id A tárgycsoport azonosítója. Nem null érték esetén csak az adott tárgycsoport tantárgyait listázza.
 	 */
 	public function actionIndex($group_id = null)
 	{
-		$Groups = array();
+		$Groups = null;
+		$Found = false;
 		if (!isset($group_id)) {
 			$Groups = SubjectGroup::model()->with('subjects')->findAll(array(
 				'order' => 't.group_id',
 			));
+			
+			$Found = isset($Groups);
 		}
 		else {
-			$Groups[] = SubjectGroup::model()->with('subjects')->find("t.group_id = $group_id");
+			$Group = SubjectGroup::model()->with('subjects')->find("t.group_id = $group_id");
+			if ($Group != null) {
+				$Found = true;
+				$Groups = array($Group);
+			}
+		}
+		
+		if (!$Found) {
+			throw new CHttpException(404, "Úgy tűnik, hogy az általad kért tárgycsoport nem létezik.");
 		}
 		
 		$userCompleted = array();
