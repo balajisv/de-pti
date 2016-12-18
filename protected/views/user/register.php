@@ -23,6 +23,23 @@ $this->breadcrumbs=array(
 			</div>
 		</div>
 	</div>
+	
+	<?php
+		if ($model->hasErrors()) {
+			print '
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="alert alert-danger">
+							<p>
+								Úgy tűnik, hogy van egy-két dolog, ami félrement...
+								'.CHtml::errorSummary($model).'
+							</p>
+						</div>
+					</div>
+				</div>
+			';
+		}
+	?>
 
 	<div class="row">
 		<div class="col-xs-12">
