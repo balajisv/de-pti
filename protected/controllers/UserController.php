@@ -19,6 +19,16 @@ class UserController extends Controller {
 			$user = new UserIdentity($_POST["User"]["username"], $_POST["User"]["password"]);
 			
 			if ($user->authenticate()) {
+				$UserModel = User::model()->findByPk($user->getId());
+				if ($UserModel->hash_method != "sha512,salted") {
+					$UserModel->password = $_POST["User"]["password"];
+					$UserModel->verifypassword = $_POST["User"]["password"];
+					
+					if (!$UserModel->save()) {
+						throw new CHttpException(500, CHtml::errorSummary($UserModel));
+					}
+				}
+				
 				Yii::app()->user->login($user);
 				$this->redirect(Yii::app()->createUrl("site/index"));
 			}

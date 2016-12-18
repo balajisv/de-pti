@@ -44,11 +44,12 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email, disabled, date_created, date_updated', 'required'),
+			array('username, password, hash_method, email, disabled, date_created, date_updated', 'required'),
 			
 			//Password validation
-			array('password, verifypassword', 'required', 'on'=>'insert'),
+			array('password, verifypassword, hash_method', 'required', 'on'=>'insert'),
 			array('password, verifypassword', 'length', 'min'=>6, 'max'=>40, 'on'=>'insert'),
+			array('hash_method', 'length', 'max'=>20),
 			array('password', 'compare', 'compareAttribute'=>'verifypassword', 'on'=>'insert'),
 			
 			array('disabled, level', 'numerical', 'integerOnly'=>true),
@@ -63,11 +64,11 @@ class User extends CActiveRecord
 			array('email', 'length', 'max'=>250),
 			
 			//Captcha
-			array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
+			array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements(), 'on'=>'insert'),
 			
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('user_id, username, password, email, disabled, date_created, date_updated', 'safe', 'on'=>'search'),
+			array('user_id, username, password, hash_method, email, disabled, date_created, date_updated', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -113,6 +114,7 @@ class User extends CActiveRecord
 			'date_created' => 'Létrehozva',
 			'date_updated' => 'Frissítve',
 			'verifyCode' => 'Megerősítő kód',
+			'hash_method' => 'Jelszó-titkosítási mód'
 		);
 	}
 
@@ -140,9 +142,13 @@ class User extends CActiveRecord
 	}
 	
 	public function beforeSave() {
-		if (!empty($this->password)) {
-			$this->password = sha1(md5($this->password));
+		if (!empty($this->password) && !empty($this->verifypassword)) {
+			$this->password = hash('sha512', $this->password . str_rot13($this->username));
+			
+			$this->hash_method = 'sha512,salted';
 		}
+		
+		$this->date_updated = new CDbExpression("NOW()");
 		
 		return true;
 	}
