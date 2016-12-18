@@ -55,6 +55,7 @@ class UserController extends Controller {
 		else {
 			$model->attributes = $_POST['User'];
 			$model->disabled = 0;
+			$model->hash_method = 'sha512,salted';
 			$model->date_created = new CDbExpression('NOW()');
 			$model->date_updated = new CDbExpression('NOW()');
 			
