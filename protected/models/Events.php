@@ -54,13 +54,13 @@ class Events extends CActiveRecord
 	public function getShortNotes() {
 		$str = new StringHelper();
 		
-		return $str->substr($this->notes, 0, 60);
+		return htmlspecialchars($str->substr($this->notes, 0, 60));
 	}
 	
 	public function getTinyNotes() {
 		$str = new StringHelper();
 		
-		return $str->substr($this->notes, 0, 15);
+		return htmlspecialchars($str->substr($this->notes, 0, 15));
 	}
 
 	/**
