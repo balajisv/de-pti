@@ -22,6 +22,9 @@ class FileController extends Controller
 		
 		$data = array();
 		foreach ($model->files as $File) {
+			if (!is_file("upload/" .$File->filename_local))
+				continue;
+			
 			$FileData = array(
 				"file_id" => (int)$File->file_id,
 				"uploader" => $File->user->username,
@@ -65,6 +68,9 @@ class FileController extends Controller
 		$model = File::model()->findByPk((int)$id);
 		if ($model == null)
 			throw new CHttpException(404, "A kért elem nem található");
+		
+		if (!is_file("upload/" . $model->filename_local))
+			$this->fileNotFoundOnStorage($model->filename_local);
 		
 		$this->render('details', array(
 			'data' => $model,
@@ -121,7 +127,10 @@ class FileController extends Controller
 		$id = (int)$id;
 		$model = File::model()->findByPk($id);
 		if ($model == null)
-			throw new CHttpException(404, "A kért elem nem található");
+			throw new CHttpException(404, "A kért elem nem található.");
+		
+		if (!is_file("upload/" . $model->filename_local))
+			$this->fileNotFoundOnStorage($model->filename_local);
 		
 		$model->downloads++;
 		$model->save();
@@ -151,7 +160,8 @@ class FileController extends Controller
 		
 		$SubjectId = $model->subject_id;
 		
-		unlink("upload/" . $model->filename_local);
+		if (is_file("upload/" . $model->filename_local))
+			unlink("upload/" . $model->filename_local);
 		
 		File::model()->deleteByPk($id);
 		
@@ -181,6 +191,13 @@ class FileController extends Controller
 		$model->save();
 		
 		$this->redirect(Yii::App()->createUrl("file/list", array("id" => $model->subject_id)));
+	}
+	
+	private function fileNotFoundOnStorage($filename_local) {
+		$LostFile = '[' . date("Y. m. d. H:i:s") . '] ' . $filename_local . PHP_EOL;
+		file_put_contents("protected/logs/lost_files.txt", $LostFile, FILE_APPEND);
+		
+		throw new CHttpException(404, "A fájlról bár vannak információink, a tárhelyen nem találtuk meg...");
 	}
 
 	// Uncomment the following methods and override them if needed
