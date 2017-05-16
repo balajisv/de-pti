@@ -23,7 +23,7 @@ class DatabaseController extends Controller {
 		
 		Yii::app()->request->sendFile(
 			"de-pti-backup-".date("Y-m-d-H-i-s").".json",
-			json_encode($this->backup(), JSON_PRETTY_PRINT)
+			json_encode($this->backup())
 		);
 	}
 	
@@ -32,9 +32,11 @@ class DatabaseController extends Controller {
 			"exportDate" => date("Y. m. d. H:i:s")
 		);
 		foreach ($this->tables as $table) {
+			$createQuery = Yii::app()->db->createCommand("SHOW CREATE TABLE `$table`")->query()->read();
+			
 			$result["tableExport"][] = array(
 				"tableName"   => $table,
-				"createQuery" => Yii::app()->db->createCommand("SHOW CREATE TABLE `$table`")->query()->read()["Create Table"],
+				"createQuery" => $createQuery["Create Table"],
 				"records"     => Yii::app()->db->createCommand("SELECT * FROM `$table`")->query()->readAll()
 			);
 		}
