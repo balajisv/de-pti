@@ -21,7 +21,10 @@ class DatabaseController extends Controller {
 			);
 		}
 		
-		print json_encode($this->backup(), JSON_PRETTY_PRINT);
+		Yii::app()->request->sendFile(
+			"de-pti-backup-".date("Y-m-d-H-i-s").".json",
+			json_encode($this->backup(), JSON_PRETTY_PRINT)
+		);
 	}
 	
 	private function backup() {
