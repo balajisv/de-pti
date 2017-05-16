@@ -42,17 +42,29 @@
 		</div>
 	</div>
 	
-	<?php
-		if (!Yii::app()->user->isGuest && Yii::app()->user->level >= 2) {
-			print CHtml::link(
-				'<i class="fa fa-users"></i> Regisztrált tagok listája',
-				Yii::app()->createUrl('user/list'),
-				array(
-					'class' => 'btn btn-info btn-sm'
-				)
-			);
-		}
-	?>
+	<div class="row">
+		<div class="col-xs-12 btn-group">
+			<?php
+				if (!Yii::app()->user->isGuest && Yii::app()->user->level >= 2) {
+					print CHtml::link(
+						'<i class="fa fa-users"></i> Regisztrált tagok listája',
+						Yii::app()->createUrl('user/list'),
+						array(
+							'class' => 'btn btn-info btn-sm'
+						)
+					);
+					
+					print CHtml::link(
+						'<i class="fa fa-save"></i> Adatbázis exportálása',
+						Yii::app()->createUrl('database/export'),
+						array(
+							'class' => 'btn btn-default btn-sm'
+						)
+					);
+				}
+			?>
+		</div>
+	</div>
 	
 	<div class="row">
 		<div class="col-xs-12 col-sm-6">
